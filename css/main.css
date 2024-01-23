@@ -1,0 +1,23 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.sub-nav {
+    margin-bottom: -16px;
+}
+
+.sub-nav-item {
+    margin-bottom: 8px;
+    white-space: nowrap;
+}
+
+.sub-nav-item:hover {
+    background-color: #e9ecef;
+}
+
+@media screen and (max-width: 991.9px) {
+    /* Définissez la largeur à partir de laquelle vous souhaitez masquer les derniers boutons */
+    .sub-nav-item:nth-child(n+7) {
+        display: none;
+    }
+}
