@@ -1,0 +1,76 @@
+/* minimal screen */
+@media screen and (max-width: 575.9px) {
+    .sub-nav-item:nth-child(n+5) {
+        display: none;
+    }
+
+    #li-home {
+        display: none;
+    }
+
+    #li-amnios {
+        display: none;
+    }
+
+    #li-radio {
+        display: none;
+    }
+}
+
+/* medium screen */
+@media screen and (max-width: 991.9px) and (min-width: 576px) {
+    .sub-nav-item:nth-child(n+7) {
+        display: none;
+    }
+
+    #li-home {
+        display: none;
+    }
+
+    #li-amnios {
+        display: none;
+    }
+
+    #li-radio {
+        display: none;
+    }
+
+    #li-babylist {
+        display: none;
+    }
+
+    #li-league {
+        display: none;
+    }
+}
+
+/* max screen */
+@media screen and (min-width: 992px) {
+    #li-home {
+        display: none;
+    }
+
+    #li-amnios {
+        display: none;
+    }
+
+    #li-radio {
+        display: none;
+    }
+
+    #li-babylist {
+        display: none;
+    }
+
+    #li-league {
+        display: none;
+    }
+
+    #li-knowledge {
+        display: none;
+    }
+
+    #li-about {
+        display: none;
+    }
+}
