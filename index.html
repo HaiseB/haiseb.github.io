@@ -14,6 +14,7 @@
     <link rel="icon" type="image/x-icon" href="./asset/icon.png">
     <title>HaiseB - Accueil</title>
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/home.css">
 </head>
 
 <body>
@@ -27,10 +28,10 @@
             <a class="navbar-brand" href="./index.html">HaiseB</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <!--li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./index.html">Accueil</a>
+                    <li class="nav-item" id="li-home">
+                        <a class="nav-link active" aria-current="page" href="./index.html"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Accueil</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown" id="li-amnios">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Amnios
@@ -41,9 +42,9 @@
                             <li><a class="dropdown-item" href="./module/amnios/gift/index.html"><i class="fa-solid fa-gift"></i>&nbsp;&nbsp;Cadeaux</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="li-radio">
                         <a class="nav-link" href="./module/radio/index.html"><i class="fa-solid fa-radio"></i>&nbsp;&nbsp;Radio</a>
-                    </li !-->
+                    </li>
                     <li class="nav-item" id="li-babylist">
                         <a class="nav-link" href="./module/babylist/index.html"><i
                                 class="fa-solid fa-baby-carriage"></i>&nbsp;&nbsp;Liste bébé</a>
@@ -74,15 +75,19 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Rechercher</button>
-                </form>
+                <div class="d-flex justify-content-around">
+                    <img src="./data/user/profilPicture/default.jpg" class="rounded-circle me-2" alt="profile picture"
+                        size="36" height="36" width="36" />
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Rechercher</button>
+                    </form>
+                </div>
             </div>
         </div>
     </nav>
     <div class="bg-body-tertiary">
-        <div class="text-center d-flex justify-content-around space-between sub-nav">
+        <div class="sub-nav d-flex justify-content-around">
             <a class="btn sub-nav-item" href="./module/amnios/meal/index.html"><i
                     class="fa-solid fa-carrot"></i>&nbsp;&nbsp;Repas</a>
             <a class="btn sub-nav-item" href="./module/amnios/task/index.html"><i
