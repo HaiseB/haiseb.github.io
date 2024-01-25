@@ -11,6 +11,7 @@
         crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/a3f0394999.js" crossorigin="anonymous"></script>
+    <script src="./js/changelog.js"></script>
     <link rel="icon" type="image/x-icon" href="./asset/icon.png">
     <title>HaiseB - Accueil</title>
     <link rel="stylesheet" href="./css/main.css">
@@ -29,7 +30,8 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item" id="li-home">
-                        <a class="nav-link active" aria-current="page" href="./index.html"><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Accueil</a>
+                        <a class="nav-link active" aria-current="page" href="./index.html"><i
+                                class="fa-solid fa-house"></i>&nbsp;&nbsp;Accueil</a>
                     </li>
                     <li class="nav-item dropdown" id="li-amnios">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -37,13 +39,17 @@
                             Amnios
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="./module/amnios/meal/index.html"><i class="fa-solid fa-carrot"></i>&nbsp;&nbsp;Repas</a></li>
-                            <li><a class="dropdown-item" href="./module/amnios/task/index.html"><i class="fa-solid fa-list-check"></i>&nbsp;&nbsp;Tâches</a></li>
-                            <li><a class="dropdown-item" href="./module/amnios/gift/index.html"><i class="fa-solid fa-gift"></i>&nbsp;&nbsp;Cadeaux</a></li>
+                            <li><a class="dropdown-item" href="./module/amnios/meal/index.html"><i
+                                        class="fa-solid fa-carrot"></i>&nbsp;&nbsp;Repas</a></li>
+                            <li><a class="dropdown-item" href="./module/amnios/task/index.html"><i
+                                        class="fa-solid fa-list-check"></i>&nbsp;&nbsp;Tâches</a></li>
+                            <li><a class="dropdown-item" href="./module/amnios/gift/index.html"><i
+                                        class="fa-solid fa-gift"></i>&nbsp;&nbsp;Cadeaux</a></li>
                         </ul>
                     </li>
                     <li class="nav-item" id="li-radio">
-                        <a class="nav-link" href="./module/radio/index.html"><i class="fa-solid fa-radio"></i>&nbsp;&nbsp;Radio</a>
+                        <a class="nav-link" href="./module/radio/index.html"><i
+                                class="fa-solid fa-radio"></i>&nbsp;&nbsp;Radio</a>
                     </li>
                     <li class="nav-item" id="li-babylist">
                         <a class="nav-link" href="./module/babylist/index.html"><i
@@ -60,7 +66,7 @@
                     <li class="nav-item dropdown" id="li-about">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            À propos de moi
+                            À propos du site
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="./module/resume/index.html"><i
@@ -76,7 +82,7 @@
                     </li>
                 </ul>
                 <div class="d-flex justify-content-around">
-                    <img src="./data/user/profilPicture/default.jpg" class="rounded-circle me-2" alt="profile picture"
+                    <img src="./data/user/profilPicture/benjamin.jpg" class="rounded-circle me-2" alt="profile picture"
                         size="36" height="36" width="36" />
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
@@ -110,8 +116,24 @@
         </div>
     </div>
     <hr>
-    <h2 class="container">On va faire des ptits tests les gens &#128526;</h2>
+    <h1 class="container">Haise.github.io</h1>
     <hr>
+    <div class="container">
+        <span>
+            Hello, le site et en construction, mais le but est de retrouver l'ensemble des outils qui
+            n'existe pas et que je dois donc coder
+        </span>
+        <div id="content" class="mt-2 d-flex">
+            <content class="border border-primary p-4">
+
+            </content>
+            <content class="border border p-2">
+                <h2>Changelog</h2>
+                <div id="changelog-list">
+                </div>
+            </content>
+        </div>
+    </div>
 </body>
 
 </html>
