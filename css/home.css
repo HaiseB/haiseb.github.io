@@ -15,6 +15,10 @@
     #li-radio {
         display: none;
     }
+
+    #profil-picture {
+        display: none;
+    }
 }
 
 /* medium screen */
@@ -42,6 +46,14 @@
     #li-league {
         display: none;
     }
+
+    #li-mtg {
+        display: none;
+    }
+
+    #profil-picture {
+        display: none;
+    }
 }
 
 /* max screen */
@@ -63,6 +75,10 @@
     }
 
     #li-league {
+        display: none;
+    }
+
+    #li-mtg {
         display: none;
     }
 

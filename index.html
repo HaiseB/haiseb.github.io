@@ -11,7 +11,7 @@
         crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/a3f0394999.js" crossorigin="anonymous"></script>
-    <script src="./js/changelog.js"></script>
+    <script src="./js/settings.js"></script>
     <link rel="icon" type="image/x-icon" href="./asset/icon.png">
     <title>HaiseB - Accueil</title>
     <link rel="stylesheet" href="./css/main.css">
@@ -59,6 +59,10 @@
                         <a class="nav-link" href="./module/league/index.html"><i
                                 class="fa-solid fa-skull"></i>&nbsp;&nbsp;League</a>
                     </li>
+                    <li class="nav-item" id="li-mtg">
+                        <a class="nav-link" href="./module/mtg/index.html"><i
+                                class="fa-brands fa-wizards-of-the-coast"></i>&nbsp;&nbsp;Magic</a>
+                    </li>
                     <li class="nav-item" id="li-knowledge">
                         <a class="nav-link" href="./module/knowledgeBase/index.html"><i
                                 class="fa-solid fa-book"></i>&nbsp;&nbsp;Encyclopédie</a>
@@ -82,8 +86,11 @@
                     </li>
                 </ul>
                 <div class="d-flex justify-content-around">
-                    <img src="./data/user/profilPicture/benjamin.jpg" class="rounded-circle me-2" alt="profile picture"
-                        size="36" height="36" width="36" />
+                    <a data-bs-toggle="offcanvas" href="#offcanvasSettings" role="button"
+                        aria-controls="offcanvasSettings">
+                        <img src="./data/user/profilPicture/benjamin.jpg" class="rounded-circle me-2"
+                            alt="profil picture" size="36" height="36" width="36" id="profil-picture" />
+                    </a>
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Rechercher</button>
@@ -106,6 +113,8 @@
                     class="fa-solid fa-baby-carriage"></i>&nbsp;&nbsp;Liste bébé</a>
             <a class="btn sub-nav-item" href="./module/league/index.html"><i
                     class="fa-solid fa-skull"></i>&nbsp;&nbsp;League</a>
+            <a class="btn sub-nav-item" href="./module/mtg/index.html"><i
+                    class="fa-brands fa-wizards-of-the-coast"></i>&nbsp;&nbsp;Magic</a>
             <a class="btn sub-nav-item" href="./module/knowledgeBase/index.html"><i
                     class="fa-solid fa-book"></i>&nbsp;&nbsp;Encyclopédie</a>
             <a class="btn sub-nav-item" href="./module/resume/index.html"><i
@@ -116,18 +125,41 @@
         </div>
     </div>
     <hr>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettingsLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasSettingsLabel">
+                <img src="./data/user/profilPicture/benjamin.jpg" class="rounded-circle me-2" alt="profil picture"
+                    size="36" height="36" width="36" id="offcanvas-profil-picture" />
+                <span class="fs-4">Paramètres</span>
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <hr>
+            <form id="settingsForm">
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="fetchChangelog" checked>
+                    <label class="form-check-label" for="fetchChangelog">Charger le changelog</label>
+                </div>
+                <button type="submit" class="btn btn-success">Enregistrer</button>
+            </form>
+        </div>
+    </div>
     <h1 class="container">Haise.github.io</h1>
     <hr>
-    <div class="container">
+    <div class="container-xxl">
         <span>
-            Hello, le site et en construction, mais le but est de retrouver l'ensemble des outils qui
-            n'existe pas et que je dois donc coder
+            Hello, le site est en construction, mais son but est de regrouper l'ensemble des outils qui
+            n'existent pas et que je dois donc coder pour me simplifier la vie.
         </span>
         <div id="content" class="mt-2 d-flex">
-            <content class="border border-primary p-4">
+            <content class="border border-primary p-2">
 
             </content>
-            <content class="border border p-2">
+            <content class="border border-secondary p-2">
+
+            </content>
+            <content class="p-2 col-sm-12">
                 <h2>Changelog</h2>
                 <div id="changelog-list">
                 </div>

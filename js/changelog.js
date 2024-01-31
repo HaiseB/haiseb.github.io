@@ -1,6 +1,4 @@
-const repoOwner = 'HaiseB';
-const repoName = 'haiseb.github.io';
-const apiUrl = `https://api.github.com/repos/${repoOwner}/${repoName}/commits?per_page=10&page=1`;
+const apiUrl = `https://api.github.com/repos/HaiseB/haiseb.github.io/commits?per_page=10&page=1`;
 
 fetch(apiUrl)
     .then(response => response.json())
