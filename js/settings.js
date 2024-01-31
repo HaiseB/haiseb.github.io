@@ -13,7 +13,6 @@ function saveFormDataToCookie() {
 
         document.cookie = 'formData=' + encodeURIComponent(formDataJSON);
 
-        alert('Données enregistrées dans le cookie !');
         includeChangelog()
     });
 }
@@ -29,12 +28,21 @@ function loadFormDataFromCookie() {
 }
 
 function includeChangelog() {
+    const changelog = document.getElementById('changelog');
+
     if (document.getElementById('fetchChangelog').checked) {
         const changelogScript = document.createElement('script');
+
+        changelog.style.display = 'block';
+
         changelogScript.src = './js/changelog.js';
-        document.body.appendChild(changelogScript);
+
+        var existingScript = document.querySelector('script[src="./js/changelog.js"]');
+
+        if (!existingScript) {
+            document.body.appendChild(changelogScript);
+        }
     } else {
-        const changelog = document.getElementById('changelog');
         changelog.style.display = 'none';
     }
 }

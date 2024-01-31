@@ -8,6 +8,10 @@ fetch(apiUrl)
         const commitsByDay = {};
 
         commits.forEach(commit => {
+            if (commit.commit.message.startsWith("Merge branch")) {
+                return;
+            }
+
             const commitDate = new Date(commit.commit.author.date);
             const formattedDate = `${commitDate.getDate()} ${getMonthName(commitDate.getMonth())} ${commitDate.getFullYear()}`;
 

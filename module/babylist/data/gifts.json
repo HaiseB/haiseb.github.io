@@ -1,0 +1,7 @@
+{
+    "cadeaux": [
+        { "nom": "Cadeau 1", "prix": 20, "image": "cadeau1.jpg", "proprietaire": null, "lien": "#" },
+        { "nom": "Cadeau 2", "prix": 30, "image": "cadeau2.jpg", "proprietaire": null, "lien": "#" },
+        { "nom": "Cadeau 3", "prix": 15, "image": "cadeau3.jpg", "proprietaire": null, "lien": "#" }
+    ]
+}
