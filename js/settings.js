@@ -33,6 +33,9 @@ function includeChangelog() {
         const changelogScript = document.createElement('script');
         changelogScript.src = './js/changelog.js';
         document.body.appendChild(changelogScript);
+    } else {
+        const changelog = document.getElementById('changelog');
+        changelog.style.display = 'none';
     }
 }
 
