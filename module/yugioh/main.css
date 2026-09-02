@@ -1,0 +1,538 @@
+/* Yu-Gi-Oh! Combo Trainer — mobile first, esthétique sombre / occulte */
+:root {
+    --ygo-bg: #0e0b14;
+    --ygo-surface: #181322;
+    --ygo-surface-2: #221a30;
+    --ygo-border: #3a2d52;
+    --ygo-accent: #b98cff;
+    --ygo-accent-2: #f0c060;
+    --ygo-text: #ece7f5;
+    --ygo-muted: #a294bd;
+    --ygo-ok: #4ad991;
+    --ygo-ko: #ff6b81;
+}
+
+body {
+    background:
+        radial-gradient(circle at 50% -10%, #2a1f3d 0%, transparent 55%),
+        var(--ygo-bg);
+    color: var(--ygo-text);
+    min-height: 100vh;
+}
+
+.ygo-app {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 12px 14px 48px;
+}
+
+/* ---------- Header ---------- */
+.ygo-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0 14px;
+}
+
+.ygo-back {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: 1px solid var(--ygo-border);
+    background: var(--ygo-surface);
+    color: var(--ygo-text);
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.ygo-back.is-hidden {
+    visibility: hidden;
+}
+
+.ygo-header__titles {
+    min-width: 0;
+}
+
+.ygo-title {
+    margin: 0;
+    font-size: 1.35rem;
+    letter-spacing: .02em;
+    color: var(--ygo-accent-2);
+}
+
+.ygo-subtitle {
+    margin: 2px 0 0;
+    font-size: .9rem;
+    color: var(--ygo-muted);
+}
+
+.ygo-section-title {
+    margin: 18px 0 8px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--ygo-muted);
+}
+
+/* ---------- Listes / navigation ---------- */
+.ygo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ygo-list-item {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 14px 16px;
+    min-height: 64px;
+    border-radius: 14px;
+    border: 1px solid var(--ygo-border);
+    background: linear-gradient(180deg, var(--ygo-surface-2), var(--ygo-surface));
+    color: var(--ygo-text);
+    text-decoration: none;
+}
+
+.ygo-list-item:active {
+    transform: scale(.99);
+}
+
+.ygo-list-item__title {
+    display: block;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.ygo-list-item__sub,
+.ygo-list-item__stats {
+    display: block;
+    font-size: .85rem;
+    color: var(--ygo-muted);
+    margin-top: 2px;
+}
+
+.ygo-list-item__meta {
+    display: block;
+    margin-top: 6px;
+    color: var(--ygo-accent-2);
+    letter-spacing: .12em;
+}
+
+/* ---------- Jeu ---------- */
+.ygo-game {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ygo-progressbar {
+    height: 6px;
+    border-radius: 99px;
+    background: var(--ygo-surface-2);
+    overflow: hidden;
+}
+
+.ygo-progressbar__fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--ygo-accent), var(--ygo-accent-2));
+    transition: width .25s ease;
+}
+
+.ygo-step-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.ygo-badge {
+    padding: 4px 10px;
+    border-radius: 99px;
+    border: 1px solid var(--ygo-border);
+    background: var(--ygo-surface);
+    font-size: .78rem;
+}
+
+.ygo-badge--chain {
+    border-color: var(--ygo-accent-2);
+    color: var(--ygo-accent-2);
+}
+
+.ygo-step-count {
+    margin-left: auto;
+    font-size: .82rem;
+    color: var(--ygo-muted);
+}
+
+.ygo-step-text {
+    background: var(--ygo-surface);
+    border: 1px solid var(--ygo-border);
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.ygo-step-text__technical {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.45;
+}
+
+.ygo-step-text__memory {
+    margin: 0;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.ygo-actions-list,
+.ygo-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.ygo-chip,
+.ygo-tag {
+    padding: 4px 10px;
+    border-radius: 99px;
+    background: var(--ygo-surface-2);
+    border: 1px solid var(--ygo-border);
+    font-size: .78rem;
+    color: var(--ygo-muted);
+}
+
+.ygo-hint,
+.ygo-note {
+    margin: 0;
+    font-size: .88rem;
+    color: var(--ygo-muted);
+}
+
+.ygo-note {
+    border-left: 3px solid var(--ygo-accent-2);
+    padding-left: 10px;
+}
+
+/* ---------- Cartes ---------- */
+.ygo-card-row {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: thin;
+}
+
+.ygo-card {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 6px;
+    border-radius: 12px;
+    border: 1px solid var(--ygo-border);
+    background: var(--ygo-surface);
+    color: var(--ygo-text);
+    text-align: center;
+}
+
+.ygo-card--small {
+    width: 84px;
+}
+
+.ygo-card--medium {
+    width: 108px;
+}
+
+.ygo-card--large {
+    width: 150px;
+}
+
+.ygo-card__img {
+    width: 100%;
+    aspect-ratio: 100 / 146;
+    object-fit: cover;
+    border-radius: 8px;
+    background: var(--ygo-surface-2);
+}
+
+.ygo-card__emoji {
+    font-size: 1rem;
+}
+
+.ygo-card__name {
+    font-size: .72rem;
+    line-height: 1.2;
+    color: var(--ygo-muted);
+}
+
+.ygo-card.is-selected {
+    border-color: var(--ygo-accent);
+    box-shadow: 0 0 0 2px rgba(185, 140, 255, .35);
+}
+
+.ygo-card.is-correct {
+    border-color: var(--ygo-ok);
+}
+
+.ygo-card.is-wrong {
+    border-color: var(--ygo-ko);
+}
+
+.ygo-card.is-locked {
+    opacity: .45;
+}
+
+/* ---------- Boutons ---------- */
+.ygo-btn {
+    min-height: 48px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--ygo-border);
+    background: var(--ygo-surface-2);
+    color: var(--ygo-text);
+    font-size: 1rem;
+}
+
+.ygo-btn:disabled {
+    opacity: .4;
+}
+
+.ygo-btn--primary {
+    background: linear-gradient(180deg, var(--ygo-accent), #7d54c9);
+    border-color: transparent;
+    font-weight: 600;
+}
+
+.ygo-btn--option {
+    width: 100%;
+    text-align: left;
+}
+
+.ygo-nav,
+.ygo-toolbar {
+    display: flex;
+    gap: 10px;
+}
+
+.ygo-nav .ygo-btn,
+.ygo-toolbar .ygo-btn {
+    flex: 1;
+}
+
+/* ---------- Fill the Blank ---------- */
+.ygo-blank-sentence {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    background: var(--ygo-surface);
+    border: 1px solid var(--ygo-border);
+    border-radius: 14px;
+    padding: 14px;
+}
+
+.ygo-blank {
+    display: inline-block;
+    padding: 0 6px;
+    border-radius: 6px;
+    background: var(--ygo-surface-2);
+    border-bottom: 2px solid var(--ygo-muted);
+}
+
+.ygo-blank.is-active {
+    border-bottom-color: var(--ygo-accent-2);
+    color: var(--ygo-accent-2);
+}
+
+.ygo-blank.is-correct {
+    border-bottom-color: var(--ygo-ok);
+    color: var(--ygo-ok);
+}
+
+.ygo-blank.is-wrong {
+    border-bottom-color: var(--ygo-ko);
+    color: var(--ygo-ko);
+}
+
+.ygo-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ygo-options__label {
+    margin: 0;
+    color: var(--ygo-muted);
+    font-size: .88rem;
+}
+
+.ygo-feedback {
+    margin: 0;
+    min-height: 1.2em;
+    font-size: .95rem;
+}
+
+.ygo-feedback.is-correct {
+    color: var(--ygo-ok);
+}
+
+.ygo-feedback.is-wrong {
+    color: var(--ygo-ko);
+}
+
+/* ---------- Put in Order ---------- */
+.ygo-order-answer {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ygo-order-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 12px;
+    min-height: 52px;
+    border-radius: 12px;
+    border: 1px solid var(--ygo-border);
+    background: var(--ygo-surface);
+    font-size: .9rem;
+}
+
+.ygo-order-item.is-empty {
+    color: var(--ygo-muted);
+    border-style: dashed;
+    justify-content: center;
+    align-items: center;
+}
+
+.ygo-order-item.is-correct {
+    border-color: var(--ygo-ok);
+}
+
+.ygo-order-item.is-wrong {
+    border-color: var(--ygo-ko);
+}
+
+.ygo-order-item__index {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    border-radius: 99px;
+    background: var(--ygo-surface-2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .78rem;
+}
+
+.ygo-order-pool {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ygo-order-chip {
+    text-align: left;
+    padding: 12px;
+    min-height: 52px;
+    border-radius: 12px;
+    border: 1px dashed var(--ygo-accent);
+    background: var(--ygo-surface-2);
+    color: var(--ygo-text);
+    font-size: .9rem;
+}
+
+/* ---------- Story Mode ---------- */
+.ygo-story-line {
+    margin: 0;
+    font-size: 1.45rem;
+    line-height: 1.6;
+    text-align: center;
+    background: var(--ygo-surface);
+    border: 1px solid var(--ygo-border);
+    border-radius: 14px;
+    padding: 18px 14px;
+}
+
+.ygo-story-reveal {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.ygo-story-technical {
+    margin: 0;
+    font-size: .9rem;
+    color: var(--ygo-muted);
+}
+
+.ygo-story-past {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    opacity: .5;
+}
+
+.ygo-story-past__line {
+    margin: 0;
+    font-size: .95rem;
+}
+
+/* ---------- Résultat ---------- */
+.ygo-score {
+    text-align: center;
+    padding: 18px;
+    border-radius: 16px;
+    border: 1px solid var(--ygo-accent-2);
+    background: var(--ygo-surface);
+}
+
+.ygo-score__value {
+    margin: 0;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--ygo-accent-2);
+}
+
+.ygo-score__sub {
+    margin: 4px 0 0;
+    color: var(--ygo-muted);
+}
+
+.ygo-score__details {
+    margin: 14px 0;
+    padding-left: 20px;
+    color: var(--ygo-muted);
+    font-size: .9rem;
+}
+
+.ygo-score__mastery p {
+    margin: 2px 0;
+    font-size: .92rem;
+}
+
+.ygo-main {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+@media (min-width: 720px) {
+    .ygo-app {
+        padding: 20px 20px 60px;
+    }
+
+    .ygo-title {
+        font-size: 1.6rem;
+    }
+}

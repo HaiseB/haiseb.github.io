@@ -1,0 +1,936 @@
+Je veux que tu développes un **site web mobile-first de gamification et d'apprentissage des combos Yu-Gi-Oh!**, destiné principalement à être utilisé sur smartphone.
+
+Le projet sera hébergé statiquement via **GitLab Pages**, donc l'application doit fonctionner entièrement côté client et ne doit pas nécessiter de backend propriétaire.
+
+Le premier deck implémenté sera **Memento / Mementotlan**, mais l'architecture doit être conçue dès le départ pour pouvoir ajouter facilement d'autres decks, combos et variantes d'exercices sans devoir réécrire le moteur.
+
+---
+
+# 1. OBJECTIF DU PROJET
+
+Le but n'est PAS de faire un simulateur de Yu-Gi-Oh!.
+
+Le but est de permettre au joueur de **mémoriser et automatiser les combos d'un deck** grâce à différents mini-jeux.
+
+L'utilisateur choisit :
+
+**Deck → Combo → Mode d'entraînement**
+
+Puis le site lui fait travailler la ligne de combo sous différentes formes.
+
+Le système doit progressivement transformer une combo longue et complexe en quelque chose que le joueur peut rappeler automatiquement.
+
+Le projet doit donc privilégier :
+
+* mémorisation
+* rappel actif
+* répétition
+* compréhension de la logique du combo
+* reconnaissance des cartes
+* ordre des actions
+* vocabulaire précis
+* adaptation aux variantes
+
+---
+
+# 2. PRINCIPLE TRÈS IMPORTANT : LE JARGON DOIT ÊTRE STANDARDISÉ
+
+Je veux utiliser un vocabulaire cohérent dans TOUTE l'application.
+
+Ne change jamais arbitrairement les verbes utilisés pour une même action.
+
+Par exemple, si une action est définie comme :
+
+> "SS"
+
+elle doit toujours pouvoir être affichée comme :
+
+> Special Summon / SS
+
+et pas parfois "invoquer spécialement", parfois "faire venir", parfois "summon", etc.
+
+Même chose pour :
+
+* NS = Normal Summon
+* SS = Special Summon
+* activate = Activer
+* search = Chercher
+* add = Ajouter à la main
+* send = Envoyer au GY
+* pop = Détruire
+* shuffle = Mélanger dans le Deck
+* banish = Bannir
+* revive = Renvoyer / Invoquer depuis le GY selon le contexte
+* summon = Invoquer
+* fuse = Fusionner
+* set = Poser
+* float = Flotter / déclencher son effet de remplacement après destruction
+* recover = Récupérer
+* mill = Envoyer des cartes du Deck au GY
+
+Le système de données doit permettre de définir précisément le verbe/action utilisé pour chaque étape.
+
+**Ne reformule jamais les actions automatiquement.**
+
+L'objectif est que le joueur mémorise exactement le langage utilisé pour le combo.
+
+---
+
+# 3. ARCHITECTURE DES DONNÉES
+
+Ne hardcode pas les combos directement dans les composants React/HTML.
+
+Créer une structure de données indépendante permettant de définir :
+
+* decks
+* cartes
+* combos
+* étapes
+* branches
+* variantes
+* tags
+* difficulté
+* exercices
+
+Par exemple, conceptuellement :
+
+Deck
+→ Combo
+→ Phase/Section
+→ Step
+→ Branch
+
+Une combo doit pouvoir avoir un squelette du type :
+
+STARTER
+↓
+SETUP
+↓
+GY SETUP
+↓
+BOARD SETUP
+↓
+END BOARD
+
+Et plusieurs branches à partir d'un point donné.
+
+Exemple :
+
+SETUP
+├── Horned Dragon + Bone Party
+├── Extending with Horned Dragon
+└── Savage line
+
+Le moteur d'exercices doit pouvoir utiliser cette structure.
+
+---
+
+# 4. PREMIER DECK : MEMENTO
+
+Créer le deck :
+
+**Memento**
+
+Nom affiché :
+
+**Memento / Mementotlan**
+
+Le premier combo à intégrer est le combo suivant.
+
+Nom :
+
+**Angwitch 1-card combo**
+
+Le combo doit être enregistré comme une suite d'étapes structurées et non comme un simple bloc de texte.
+
+Voici la ligne de base :
+
+1. NS Mementotlan Angwitch
+2. Activate Mementotlan Angwitch to search Mementotlan Tatsunootoshigo
+3. SS Mementotlan Tatsunootoshigo and activate it, popping itself, to send Mementotlan Mace, Mementotlan Goblin & Mementotlan Shleepy
+4. Activate Mementotlan Angwitch, popping itself, to SS Mementotlan Mace
+5. Activate Mementotlan Mace, popping itself, to search Mementotlan Fusion
+6. Activate Mementotlan Fusion to SS Mementomictlan Tecuhtlica - Creation King by shuffling Mementotlan Tatsunootoshigo, Mementotlan Mace & Mementotlan Angwitch
+7. Activate Mementomictlan Tecuhtlica - Creation King to send another Mementomictlan Tecuhtlica - Creation King, Mementotlan Akihiron & Mementotlan Ghattic
+8. Mementotlan Ghattic effect to SS itself
+9. Activate Mementotlan Ghattic to add Mementotlan Shleepy to hand
+10. Mementomictlan Tecuhtlica - Creation King GY effect to search Mementomictlan
+11. Activate Mementomictlan
+12. CL1 Mementotlan Fusion in GY to pop Mementomictlan Tecuhtlica - Creation King and search Mementotlan Bone Party
+13. CL2 Mementotlan Shleepy to SS itself from hand
+14. New chain: CL1 Mementotlan Shleepy to SS Mementotlan Twin Dragon using Mementotlan Shleepy + Mementotlan Ghattic
+15. CL2 Mementomictlan to SS Mementotlan Goblin
+16. CL3 Mementotlan Akihiron to SS itself
+17. Activate Mementotlan Twin Dragon, popping Mementotlan Akihiron, to add Mementotlan-Horned Dragon & Mementoal Tecuhtlica - Combined Creation
+18. Activate Mementotlan Akihiron to add the banished Mementotlan Fusion to hand
+
+Cette étape est extrêmement importante :
+
+### SETUP COMPLETED
+
+À partir de cette étape, la combo peut partir dans différentes directions.
+
+Ne considère donc PAS la suite comme faisant partie d'une seule combo obligatoire.
+
+---
+
+# 5. BRANCHE : HORNED DRAGON + BONE PARTY
+
+Créer une branche appelée :
+
+**Horned Dragon + Bone Party**
+
+Étapes :
+
+1. Activate Mementotlan Goblin, popping Mementotlan Twin Dragon, to send 2 cards of choice
+2. Mementotlan Twin Dragon GY effect to float into any body
+3. Activate Mementotlan Bone Party to pop Mementoal Tecuhtlica - Combined Creation in hand to summon Mementotlan Dark Blade
+4. Activate Mementotlan Dark Blade to SS Mementotlan Angwitch from Deck by popping anything
+5. Link summon / build the desired Link line
+6. SS Mementoal Tecuhtlica - Combined Creation by shuffling appropriate cards while keeping Mementotlan Akihiron and Mementotlan Dark Blade in GY
+7. SS Mementotlan-Horned Dragon from hand
+8. Set Mementotlan Fusion
+
+Cette branche doit pouvoir être interrompue / personnalisée selon l'Extra Deck choisi.
+
+---
+
+# 6. BRANCHE : EXTENDING WITH HORNED DRAGON
+
+Créer une autre branche :
+
+**Extending with Horned Dragon**
+
+Étapes :
+
+1. SS Mementotlan-Horned Dragon from hand
+2. Link summon Cross-Sheep using Mementotlan-Horned Dragon + Mementotlan Goblin
+3. Activate Mementotlan Bone Party to pop Mementoal Tecuhtlica - Combined Creation in hand to summon Mementotlan Dark Blade in Cross-Sheep's zone
+4. Activate Cross-Sheep to SS Mementotlan Goblin
+5. Activate Mementotlan Dark Blade to SS Mementotlan Angwitch from Deck
+6. Activate Mementotlan Goblin, popping Mementotlan Twin Dragon, to send 2 cards of choice
+7. Build desired Link/Synchro board
+8. During the End Phase, Field Spell sets Mementotlan Bone Party or another appropriate card
+
+---
+
+# 7. FUTURE BRANCHES
+
+Prévoir dès maintenant un système de branches permettant d'ajouter facilement :
+
+* Apollousa lines
+* S:P lines
+* Selene lines
+* Cross-Sheep lines
+* Borreload Savage line
+* trap setup
+* follow-up lines
+* Nibiru-safe lines
+* Ghost Ogre-safe lines
+* alternative sequencing
+
+Mais ne cherche pas à tout implémenter automatiquement.
+
+Le moteur doit simplement permettre de les ajouter comme nouvelles branches.
+
+---
+
+# 8. MODE DE JEU 1 — BASIC FORM
+
+Créer un mode :
+
+## "Basic Form"
+
+Le joueur voit les cartes et les actions.
+
+Exemple :
+
+> 🧙 Mementotlan Angwitch
+> ↓
+> Search Mementotlan Tatsunootoshigo
+> ↓
+> 🐉 Mementotlan Tatsunootoshigo
+> ↓
+> Send Mace + Goblin + Shleepy
+> ↓
+> ...
+
+Objectif :
+
+**apprendre le squelette de la combo.**
+
+Interface très lisible sur mobile.
+
+Possibilité de :
+
+* avancer étape par étape
+* revenir en arrière
+* afficher/masquer l'explication
+* afficher les cartes
+* afficher le nom exact de l'action
+
+---
+
+# 9. MODE DE JEU 2 — FILL IN THE BLANK
+
+Mode :
+
+## "Fill the Blank"
+
+Le joueur voit une combo avec certaines informations masquées.
+
+Exemple :
+
+> NS Mementotlan Angwitch
+> ↓
+> Activate Angwitch to search ______
+> ↓
+> SS Mementotlan Tatsunootoshigo
+> ↓
+> Send Mementotlan Mace + ______ + Mementotlan Shleepy
+
+Le joueur doit sélectionner ou écrire :
+
+**Mementotlan Goblin**
+
+Prévoir plusieurs niveaux :
+
+### Easy
+
+Nom de carte manquant.
+
+### Medium
+
+Action manquante.
+
+### Hard
+
+Carte + action manquantes.
+
+### Expert
+
+Plusieurs étapes consécutives manquantes.
+
+---
+
+# 10. MODE DE JEU 3 — PUT IN ORDER
+
+Mode :
+
+## "Put in Order"
+
+Afficher plusieurs étapes mélangées.
+
+Exemple :
+
+* Activate Mementotlan Mace to search Mementotlan Fusion
+* NS Mementotlan Angwitch
+* Activate Mementotlan Fusion
+* SS Mementotlan Tatsunootoshigo
+* Activate Angwitch to search Tatsunootoshigo
+
+Le joueur doit remettre les étapes dans le bon ordre.
+
+Sur mobile :
+
+**drag & drop** si fiable.
+
+Sinon prévoir une interface tactile simple :
+
+> sélectionner une étape → sélectionner sa position
+
+Ne pas dépendre exclusivement du drag & drop.
+
+---
+
+# 11. MODE DE JEU 4 — STORY / EMOJI
+
+Mode :
+
+## "Story Mode"
+
+Transformer temporairement la combo en histoire visuelle.
+
+Exemple :
+
+🧙‍♀️ Angwitch
+➡️ 🔎 cherche 🐉 Tatsunootoshigo
+
+🐉 Tatsunootoshigo
+➡️ 💥 se détruit
+➡️ 🔨 Mace
+➡️ 👺 Goblin
+➡️ 🐑 Shleepy
+
+🧙‍♀️ Angwitch
+➡️ 💥
+➡️ 🔨 Mace
+
+🔨 Mace
+➡️ 💥
+➡️ 🌀 Fusion
+
+🌀 Fusion
+➡️ 👑 Tecuhtlica
+
+👑 Tecuhtlica
+➡️ ⚰️ envoie des cartes au GY
+
+🐱 Ghattic
+➡️ ⬆️ revient
+
+🐱 Ghattic
+➡️ 🔎 récupère 🐑 Shleepy
+
+🐑 Shleepy + 🐱 Ghattic
+➡️ 🐉🐉 Twin Dragon
+
+🐉🐉 Twin Dragon
+➡️ 🔎 Horned Dragon + Combined Creation
+
+🦖 Akihiron
+➡️ 🔄 récupère Fusion
+
+🏁 SETUP
+
+Le but est d'utiliser la narration et les images mentales pour renforcer la mémorisation.
+
+Le mode doit pouvoir être généré à partir des données du combo plutôt que d'être codé manuellement.
+
+---
+
+# 12. IMAGES DES CARTES
+
+Les images des cartes doivent être récupérées **dynamiquement**.
+
+Ne pas stocker manuellement une copie de toutes les images dans le repository si cela peut être évité.
+
+Utiliser une API/base de données publique de cartes Yu-Gi-Oh! adaptée pour récupérer :
+
+* nom
+* image
+* éventuellement texte
+* type
+* attribut
+* niveau
+
+Prévoir un système de cache local pour éviter de refaire inutilement les mêmes requêtes.
+
+Très important :
+
+**ne jamais dépendre d'une URL d'image écrite manuellement pour chaque carte.**
+
+Le système doit recevoir :
+
+```text
+"Mementotlan Angwitch"
+```
+
+et être capable de retrouver automatiquement son image.
+
+Créer une couche/service du genre :
+
+```text
+CardRepository
+CardImageService
+```
+
+afin de pouvoir changer de source plus tard sans modifier les mini-jeux.
+
+Si l'API n'est pas disponible temporairement :
+
+* afficher un placeholder propre
+* ne pas casser l'application
+* permettre au reste du jeu de fonctionner
+
+---
+
+# 13. CARTES
+
+Créer un système de carte visuelle réutilisable.
+
+Une carte doit pouvoir afficher :
+
+* image
+* nom
+* éventuellement type/attribut
+* état sélectionné
+* état correct
+* état incorrect
+* état verrouillé
+* taille compacte pour les longues combos
+
+Sur smartphone, les cartes ne doivent pas devenir minuscules.
+
+Prévoir différentes tailles :
+
+* card-large
+* card-medium
+* card-small
+
+---
+
+# 14. PROGRESSION
+
+Ajouter un système simple de progression.
+
+Pour chaque combo et chaque mode :
+
+* nombre de tentatives
+* réussites
+* taux de réussite
+* meilleur score
+* temps
+* streak
+* niveau de maîtrise
+
+Exemple :
+
+```text
+Angwitch 1-card combo
+
+Basic Form       ✓ Maîtrisé
+Fill the Blank   ★★★☆☆
+Put in Order     ★★☆☆☆
+Story Mode       ★★★★☆
+```
+
+Stocker la progression avec :
+
+**localStorage**
+
+puisque l'application sera statique.
+
+Aucune connexion obligatoire.
+
+---
+
+# 15. SYSTÈME DE SCORE
+
+Créer un système de score simple mais satisfaisant.
+
+Récompenser :
+
+* bonne réponse
+* rapidité
+* série de bonnes réponses
+* combo complétée sans erreur
+* difficulté élevée
+
+Exemple :
+
+```text
++100 Combo Complete
++50 Perfect
++25 Fast
++10 Streak
+```
+
+Ajouter une petite animation / feedback visuel, mais éviter les animations lourdes.
+
+---
+
+# 16. DIFFICULTÉ ADAPTATIVE
+
+Prévoir une base permettant plus tard un système de répétition espacée.
+
+Chaque exercice doit avoir un niveau de maîtrise.
+
+Par exemple :
+
+```text
+0 = jamais vu
+1 = découverte
+2 = fragile
+3 = correct
+4 = maîtrisé
+5 = automatique
+```
+
+Pour l'instant, un système simple suffit.
+
+Mais l'architecture doit permettre plus tard de proposer automatiquement :
+
+> "Tu rates souvent cette partie, on va la retravailler."
+
+---
+
+# 17. MENU PRINCIPAL
+
+Le menu mobile doit être très simple.
+
+Écran :
+
+# MEMENTO COMBO TRAINER
+
+Puis :
+
+**Choose Deck**
+
+🦴 Memento
+
+Puis :
+
+**Choose Combo**
+
+🧙 Angwitch 1-card combo
+
+Puis :
+
+**Choose Training**
+
+* Basic Form
+* Fill the Blank
+* Put in Order
+* Story / Emoji
+
+---
+
+# 18. NAVIGATION MOBILE
+
+L'application est **mobile-first**.
+
+Priorité absolue :
+
+**smartphone portrait.**
+
+Elle doit fonctionner correctement avec :
+
+* 360px
+* 390px
+* 412px
+* 430px
+
+Éviter :
+
+* menus horizontaux énormes
+* petits boutons
+* texte minuscule
+* interfaces nécessitant une souris
+* drag & drop obligatoire
+* hover indispensable
+
+Les boutons doivent être suffisamment grands pour être utilisés au doigt.
+
+Prévoir éventuellement une interface desktop responsive, mais le mobile est prioritaire.
+
+---
+
+# 19. DESIGN
+
+Je veux une esthétique inspirée de :
+
+* Yu-Gi-Oh!
+* manga
+* occult
+* sombre
+* mystérieux
+* légèrement "roguelike"
+
+Mais l'interface doit rester très lisible.
+
+Ne pas faire un site surchargé.
+
+Le joueur doit immédiatement comprendre :
+
+> où il est
+> quelle combo il apprend
+> quelle étape il doit mémoriser
+> ce qu'il doit faire maintenant
+
+---
+
+# 20. ARCHITECTURE TECHNIQUE
+
+Tu peux choisir la stack moderne la plus adaptée, mais je privilégie quelque chose comme :
+
+* React
+* TypeScript
+* Vite
+* CSS ou solution légère
+* localStorage
+* GitLab Pages
+
+Éviter toute dépendance à un serveur backend.
+
+Le projet doit pouvoir être construit avec :
+
+```bash
+npm install
+npm run build
+```
+
+et le dossier de build doit pouvoir être déployé sur GitLab Pages.
+
+Préparer également la configuration nécessaire à GitLab CI/CD.
+
+Créer :
+
+```text
+.gitlab-ci.yml
+```
+
+pour automatiser le déploiement.
+
+---
+
+# 21. STRUCTURE DU PROJET
+
+Je veux une séparation claire entre :
+
+```text
+src/
+  components/
+  pages/
+  games/
+  data/
+  services/
+  hooks/
+  utils/
+  types/
+  styles/
+```
+
+Par exemple :
+
+```text
+games/
+  BasicForm/
+  FillBlank/
+  PutInOrder/
+  StoryMode/
+```
+
+Et :
+
+```text
+data/
+  decks/
+    memento/
+      cards.ts
+      combos.ts
+      branches.ts
+```
+
+Le moteur des jeux ne doit jamais connaître spécifiquement Memento.
+
+Il doit recevoir des données de combo génériques.
+
+---
+
+# 22. POINT TRÈS IMPORTANT : NE PAS SUR-IMPLÉMENTER
+
+Je préfère une première version :
+
+**petite mais fonctionnelle et propre**
+
+plutôt qu'un énorme système avec 50 fonctionnalités cassées.
+
+MVP obligatoire :
+
+1. Menu
+2. Memento
+3. Angwitch 1-card combo
+4. Basic Form
+5. Fill the Blank
+6. Put in Order
+7. Story / Emoji
+8. Images dynamiques des cartes
+9. progression localStorage
+10. responsive mobile
+11. GitLab Pages deployment
+
+Une fois cela fonctionnel, l'architecture doit permettre d'ajouter facilement :
+
+* nouveaux combos
+* nouvelles branches
+* nouveaux decks
+* nouveaux modes
+* nouveaux niveaux de difficulté
+
+---
+
+# 23. IMPORTANT : PAS DE FAUSSE LOGIQUE YU-GI-OH!
+
+Ne tente pas de recréer toutes les règles du jeu.
+
+Le projet est un **outil de mémorisation**, pas un moteur de duel.
+
+Les données du combo indiquent explicitement :
+
+* carte
+* action
+* cible
+* coût
+* résultat
+* prochaine étape
+
+Le moteur se contente de tester si le joueur mémorise correctement cette séquence.
+
+---
+
+# 24. AFFICHAGE DU COMBO
+
+Toujours afficher les combos comme une chaîne visuelle claire.
+
+Exemple :
+
+```text
+🧙 Angwitch
+      ↓
+🔎 Search
+      ↓
+🐉 Tatsunootoshigo
+      ↓
+💥 Pop
+      ↓
+📤 Send
+      ↓
+🔨 Mace
+      ↓
+💥 Pop
+      ↓
+🌀 Fusion
+```
+
+Mais lorsque le joueur passe en mode avancé, afficher le texte exact de l'action.
+
+Il doit donc exister deux niveaux :
+
+### MEMORY VIEW
+
+Très visuel :
+
+> 🧙 → 🔎 → 🐉 → 💥 → 🔨 → 🌀
+
+### TECHNICAL VIEW
+
+Exact :
+
+> NS Mementotlan Angwitch
+> Activate Mementotlan Angwitch to search Mementotlan Tatsunootoshigo
+> ...
+
+Cela permettra d'utiliser à la fois la mémorisation par image/histoire et la mémorisation précise du combo.
+
+---
+
+# 25. SYSTÈME DE TAGS
+
+Chaque étape peut avoir des tags.
+
+Exemple :
+
+```text
+starter
+search
+gy
+pop
+summon
+fusion
+chain
+extension
+interaction
+nibiru-safe
+ghost-ogre-safe
+```
+
+Cela permettra plus tard de créer des exercices ciblés.
+
+Par exemple :
+
+> "Practice only GY interactions"
+
+ou :
+
+> "Practice all search effects."
+
+---
+
+# 26. CHAIN LINKS
+
+Le système de données doit pouvoir représenter explicitement les chaînes.
+
+Exemple :
+
+```text
+Chain:
+CL1 = Mementotlan Fusion
+CL2 = Mementotlan Shleepy
+```
+
+Et pouvoir afficher :
+
+```text
+CL1 Fusion
+CL2 Shleepy
+```
+
+Le joueur pourra donc apprendre les séquences de Chain Link comme partie intégrante du combo.
+
+---
+
+# 27. OBJECTIF À LONG TERME
+
+Je veux pouvoir arriver progressivement à quelque chose comme :
+
+```text
+MEMENTO
+│
+├── 1-card starters
+│   ├── Angwitch
+│   ├── ...
+│
+├── 2-card starters
+│
+├── Combo routes
+│   ├── Standard
+│   ├── Horned Dragon
+│   ├── Cross-Sheep
+│   ├── Savage
+│   └── ...
+│
+├── Around interruptions
+│   ├── Nibiru
+│   ├── Ghost Ogre
+│   └── ...
+│
+└── End boards
+    ├── Apollousa
+    ├── S:P
+    ├── Savage
+    └── ...
+```
+
+Puis pouvoir ajouter un autre deck :
+
+```text
+MEMENTO
+LABRYNTH
+...
+```
+
+sans modifier le moteur.
+
+---
+
+# 28. AVANT DE CODER
+
+Avant de commencer le développement, fais-moi d'abord un très court résumé de :
+
+1. l'architecture proposée
+2. la structure des données d'une combo
+3. les composants principaux
+4. comment tu vas récupérer les images
+5. comment tu vas gérer GitLab Pages
+6. comment les quatre mini-jeux vont utiliser les mêmes données
+
+Puis commence directement l'implémentation.
+
+Ne me demande pas de spécifier chaque détail visuel : prends des décisions raisonnables et garde l'interface simple.
+
+Si un détail est ambigu, privilégie :
+
+**simplicité → extensibilité → mobile → performance.**
+
+Et surtout : **ne transforme pas les données de combo en texte libre difficile à exploiter.** Le même dataset doit pouvoir alimenter Basic Form, Fill the Blank, Put in Order et Story Mode.
