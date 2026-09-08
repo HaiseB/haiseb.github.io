@@ -629,5 +629,317 @@ export const combos = [
         }
     ],
     branches: []
+    },
+    {
+        id: 'goblin-breakout-combo',
+        name: 'Goblin / Breakout combo',
+        emoji: '👺',
+        difficulty: 4,
+        tags: ['starter', 'goblin', 'breakout'],
+        endNote: 'END BOARD — S:P + Mementoal Tecuhtlica - Combined Creation, with Mementomictlan Tecuhtlica - Creation King remaining on field. Trap searched.',
+        steps: [
+            {
+                id: 'gb01',
+                phase: 'STARTER',
+                actions: ['NS'],
+                actor: 'Mementotlan Goblin',
+                targets: [],
+                text: 'NS Mementotlan Goblin',
+                story: '👺 Goblin ➡️ ⬇️ NS',
+                tags: ['starter', 'summon']
+            },
+    
+            {
+                id: 'gb02',
+                phase: 'STARTER',
+                actions: ['ACTIVATE', 'POP', 'SEND'],
+                actor: 'Mementotlan Goblin',
+                targets: [
+                    'Mementotlan Ghattic',
+                    'Mementotlan Fusion'
+                ],
+                text: 'Activate Mementotlan Goblin, popping itself, to send Mementotlan Ghattic & Mementotlan Fusion',
+                story: '👺 Goblin ➡️ 💥 ➡️ ⚰️ 🐱 Ghattic + 🌀 Fusion',
+                tags: ['pop', 'send', 'gy']
+            },
+    
+            {
+                id: 'gb03',
+                phase: 'SETUP',
+                actions: ['SS'],
+                actor: 'Mementotlan Ghattic',
+                targets: [],
+                text: 'Mementotlan Ghattic effect to SS itself',
+                story: '🐱 Ghattic ➡️ ⬆️ SS',
+                tags: ['gy', 'summon']
+            },
+    
+            {
+                id: 'gb04',
+                phase: 'SETUP',
+                actions: ['ACTIVATE', 'ADD'],
+                actor: 'Mementotlan Ghattic',
+                targets: ['Mementotlan Fusion'],
+                text: 'Activate Mementotlan Ghattic to add Mementotlan Fusion from GY',
+                story: '🐱 Ghattic ➡️ 🔎 🌀 Fusion',
+                tags: ['gy', 'add']
+            },
+    
+            {
+                id: 'gb05',
+                phase: 'SETUP',
+                actions: ['ACTIVATE', 'SS'],
+                actor: 'Mementotlan Fusion',
+                targets: ['Mementotlan Twin Dragon'],
+                text: 'Activate Mementotlan Fusion to SS Mementotlan Twin Dragon',
+                story: '🌀 Fusion ➡️ 🐉🐉 Twin Dragon',
+                tags: ['fusion', 'summon']
+            },
+    
+            {
+                id: 'gb06',
+                phase: 'SETUP',
+                actions: ['ACTIVATE', 'POP', 'ADD'],
+                actor: 'Mementotlan Twin Dragon',
+                targets: [
+                    'Mementotlan Shleepy',
+                    'Mementotlan Tatsunootoshigo'
+                ],
+                text: 'Activate Mementotlan Twin Dragon, popping itself, to add Mementotlan Shleepy & Mementotlan Tatsunootoshigo',
+                story: '🐉🐉 Twin ➡️ 💥 ➡️ 🖐️ 🐑 Shleepy + 🐉 Tatsu',
+                tags: ['pop', 'add']
+            },
+    
+            {
+                id: 'gb07',
+                phase: 'SETUP',
+                actions: ['FLOAT', 'SS'],
+                actor: 'Mementotlan Twin Dragon',
+                targets: ['Mementotlan Ghattic'],
+                text: 'Mementotlan Twin Dragon GY effect to SS Mementotlan Ghattic',
+                story: '🐉🐉 GY ➡️ 🫧 ➡️ 🐱 Ghattic',
+                tags: ['gy', 'float', 'summon']
+            },
+    
+            {
+                id: 'gb08',
+                phase: 'SETUP',
+                actions: ['SS'],
+                actor: 'Mementotlan Shleepy',
+                targets: [],
+                text: 'Activate Mementotlan Shleepy to SS itself',
+                story: '🐑 Shleepy ➡️ ⬆️ SS',
+                tags: ['summon']
+            },
+    
+            {
+                id: 'gb09',
+                phase: 'SETUP',
+                actions: ['ACTIVATE', 'SS'],
+                actor: 'Mementotlan Shleepy',
+                targets: ['Mementomictlan Tecuhtlica - Creation King'],
+                text: 'Activate Mementotlan Shleepy again to SS Mementomictlan Tecuhtlica - Creation King',
+                story: '🐑 ➡️ 👑 Tecuhtlica',
+                tags: ['summon', 'fusion']
+            },
+    
+            {
+                id: 'gb10',
+                phase: 'GY_SETUP',
+                actions: ['ACTIVATE', 'SEND'],
+                actor: 'Mementomictlan Tecuhtlica - Creation King',
+                targets: [
+                    'Mementomictlan Tecuhtlica - Creation King',
+                    'Mementotlan Akihiron',
+                    'Mementotlan Dark Blade'
+                ],
+                text: 'Activate Mementomictlan Tecuhtlica - Creation King to send another Mementomictlan Tecuhtlica - Creation King, Mementotlan Akihiron & Mementotlan Dark Blade',
+                story: '👑 ➡️ ⚰️ 👑 + 🦖 + ⚔️',
+                tags: ['gy', 'send']
+            },
+    
+            {
+                id: 'gb11',
+                phase: 'GY_SETUP',
+                actions: ['SEARCH'],
+                actor: 'Mementomictlan Tecuhtlica - Creation King',
+                targets: ['Mementomictlan'],
+                text: 'Mementomictlan Tecuhtlica - Creation King GY effect to search Mementomictlan',
+                story: '👑 GY ➡️ 🔎 🏟️ Mementomictlan',
+                tags: ['gy', 'search']
+            },
+    
+            {
+                id: 'gb12',
+                phase: 'GY_SETUP',
+                actions: ['ACTIVATE'],
+                actor: 'Mementomictlan',
+                targets: [],
+                text: 'Activate Mementomictlan',
+                story: '🏟️ Mementomictlan ➡️ 🌎',
+                tags: ['field']
+            },
+    
+            {
+                id: 'gb13',
+                phase: 'BOARD_SETUP',
+                actions: ['ACTIVATE', 'POP', 'SEARCH'],
+                actor: 'Mementotlan Fusion',
+                targets: [
+                    'Mementomictlan Tecuhtlica - Creation King'
+                ],
+                text: 'Activate Mementotlan Fusion in the GY to pop Mementomictlan Tecuhtlica - Creation King to search your trap of choice',
+                story: '🌀 GY ➡️ 💥 👑 ➡️ 🔎 🂠 Trap',
+                tags: ['gy', 'pop', 'search']
+            },
+    
+            {
+                id: 'gb14',
+                phase: 'BOARD_SETUP',
+                actions: ['SS'],
+                actor: 'Mementomictlan',
+                targets: ['Mementotlan Dark Blade'],
+                text: 'Activate Mementomictlan to SS Mementotlan Dark Blade',
+                story: '🏟️ ➡️ ⬆️ ⚔️ Dark Blade',
+                chain: { id: 'goblin-chain-1', link: 1 },
+                tags: ['chain', 'summon']
+            },
+    
+            {
+                id: 'gb15',
+                phase: 'BOARD_SETUP',
+                actions: ['SS'],
+                actor: 'Mementotlan Akihiron',
+                targets: [],
+                text: 'Activate Mementotlan Akihiron to SS itself',
+                story: '🦖 Akihiron ➡️ ⬆️ SS',
+                chain: { id: 'goblin-chain-1', link: 2 },
+                tags: ['chain', 'summon', 'gy']
+            },
+    
+            {
+                id: 'gb16',
+                phase: 'BOARD_SETUP',
+                actions: ['ACTIVATE', 'POP', 'SS'],
+                actor: 'Mementotlan Dark Blade',
+                targets: [
+                    'Mementotlan Akihiron',
+                    'Mementotlan Angwitch'
+                ],
+                text: 'Activate Mementotlan Dark Blade, popping Mementotlan Akihiron, to SS Mementotlan Angwitch',
+                story: '⚔️ ➡️ 💥 🦖 ➡️ ⬆️ 🧙‍♀️ Angwitch',
+                tags: ['pop', 'summon']
+            },
+    
+            {
+                id: 'gb17',
+                phase: 'BOARD_SETUP',
+                actions: ['ADD'],
+                actor: 'Mementotlan Angwitch',
+                targets: ['Mementoal Tecuhtlica - Combined Creation'],
+                text: 'Activate Mementotlan Angwitch to add Mementoal Tecuhtlica - Combined Creation',
+                story: '🧙‍♀️ ➡️ 🔎 👹 Combined Creation',
+                chain: { id: 'goblin-chain-2', link: 1 },
+                tags: ['chain', 'search']
+            },
+    
+            {
+                id: 'gb18',
+                phase: 'BOARD_SETUP',
+                actions: ['ADD'],
+                actor: 'Mementotlan Akihiron',
+                targets: ['Mementotlan Fusion'],
+                text: 'Activate Mementotlan Akihiron to add banished Mementotlan Fusion',
+                story: '🦖 ➡️ ♻️ 🌀 Fusion',
+                chain: { id: 'goblin-chain-2', link: 2 },
+                tags: ['chain', 'add', 'gy']
+            },
+    
+            {
+                id: 'gb19',
+                phase: 'END_BOARD',
+                actions: ['LINK_SUMMON'],
+                actor: 'S:P Little Knight',
+                targets: [],
+                text: 'SS S:P Little Knight',
+                story: '🗡️ S:P ➡️ ⬆️',
+                tags: ['link', 'summon', 'end-board']
+            },
+    
+            {
+                id: 'gb20',
+                phase: 'END_BOARD',
+                actions: ['SS', 'SHUFFLE'],
+                actor: 'Mementoal Tecuhtlica - Combined Creation',
+                targets: [
+                    'Mementomictlan Tecuhtlica - Creation King',
+                    'Mementotlan Akihiron',
+                    'Mementotlan Dark Blade',
+                    'Mementotlan Angwitch'
+                ],
+                text: 'SS Mementoal Tecuhtlica - Combined Creation by shuffling everything except Mementomictlan Tecuhtlica - Creation King, Mementotlan Akihiron and pick between Mementotlan Dark Blade OR Mementotlan Angwitch',
+                story: '👹 Combined Creation ➡️ 🔄 shuffle ➡️ 🧩 garder 👑 + 🦖 + ⚔️/🧙‍♀️',
+                tags: ['fusion', 'summon', 'shuffle', 'end-board']
+            }
+        ],
+    
+        branches: [
+            {
+                id: 'goblin-horned-bone-party',
+                name: 'Horned Dragon + Bone Party',
+                emoji: '🦕🦴',
+                difficulty: 5,
+                tags: ['horned-dragon', 'bone-party', 'variant'],
+                endNote: 'VARIANT — End on Mementotlan-Horned Dragon + Mementotlan Bone Party.',
+                steps: [
+                    {
+                        id: 'gbh01',
+                        phase: 'VARIANT',
+                        actions: ['ADD'],
+                        actor: 'Mementotlan Twin Dragon',
+                        targets: ['Mementotlan Dark Blade'],
+                        text: 'Spend the first Mementotlan Twin Dragon search to grab Mementotlan Dark Blade instead of Mementotlan Tatsunootoshigo',
+                        story: '🐉🐉 ➡️ 🔎 ⚔️ Dark Blade',
+                        tags: ['variant', 'search']
+                    },
+    
+                    {
+                        id: 'gbh02',
+                        phase: 'VARIANT',
+                        actions: ['ACTIVATE', 'POP', 'SEARCH'],
+                        actor: 'Mementotlan Fusion',
+                        targets: [
+                            'Mementomictlan Tecuhtlica - Creation King',
+                            'Mementotlan Bone Party'
+                        ],
+                        text: 'Activate Mementotlan Fusion in the GY to pop Mementomictlan Tecuhtlica - Creation King to search Mementotlan Bone Party',
+                        story: '🌀 GY ➡️ 💥 👑 ➡️ 🔎 🦴 Bone Party',
+                        tags: ['variant', 'gy', 'pop', 'search']
+                    },
+    
+                    {
+                        id: 'gbh03',
+                        phase: 'VARIANT',
+                        actions: ['SEND'],
+                        actor: 'Mementomictlan Tecuhtlica - Creation King',
+                        targets: ['Mementoal Tecuhtlica - Combined Creation'],
+                        text: 'Use Mementomictlan Tecuhtlica - Creation King to send Mementoal Tecuhtlica - Combined Creation instead of Mementotlan Dark Blade',
+                        story: '👑 ➡️ ⚰️ 👹 Combined Creation',
+                        tags: ['variant', 'send']
+                    },
+    
+                    {
+                        id: 'gbh04',
+                        phase: 'VARIANT',
+                        actions: ['ADD'],
+                        actor: 'Mementotlan Angwitch',
+                        targets: ['Mementotlan-Horned Dragon'],
+                        text: 'Activate Mementotlan Angwitch to add Mementotlan-Horned Dragon instead of Mementoal Tecuhtlica - Combined Creation',
+                        story: '🧙‍♀️ ➡️ 🔎 🦕 Horned Dragon',
+                        tags: ['variant', 'search']
+                    }
+                ]
+            }
+        ]
     }
 ];
