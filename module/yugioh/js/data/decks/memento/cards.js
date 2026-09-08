@@ -20,5 +20,8 @@ export const cards = [
     { name: 'Mementomictlan Tecuhtlica - Creation King', short: 'Tecuhtlica', emoji: '👑', role: 'fusion' },
     { name: 'Mementoal Tecuhtlica - Combined Creation', short: 'Combined Creation', emoji: '👹', role: 'fusion' },
     { name: 'Mementotlan Twin Dragon', short: 'Twin Dragon', emoji: '🐉🐉', role: 'fusion' },
-    { name: 'Cross-Sheep', short: 'Cross-Sheep', emoji: '🐏', role: 'extra' }
+    { name: 'Cross-Sheep', short: 'Cross-Sheep', emoji: '🐏', role: 'extra' },
+    { name: 'S:P Little Knight', short: 'S:P', emoji: '🗡️', role: 'extra' },
+    { name: 'Apollousa, Bow of the Goddess', short: 'Apollousa', emoji: '🏹', role: 'extra' },
+    { name: 'Goblin Biker Grand Breakout', short: 'Grand Breakout', emoji: '💥', role: 'starter' },
 ];
