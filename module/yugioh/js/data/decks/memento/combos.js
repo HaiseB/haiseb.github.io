@@ -941,5 +941,402 @@ export const combos = [
                 ]
             }
         ]
+    },
+    {
+        id: 'mace-combo',
+        name: 'Mace combo',
+        emoji: '🔨',
+        difficulty: 5,
+        tags: ['starter', 'mace', '1-card'],
+        endNote: 'END BOARD — 3 mat Apollousa + Mementomictlan Tecuhtlica - Creation King + Mementotlan Bone Party. Trap sent to GY.',
+        steps: [
+            {
+                id: 'mc01',
+                phase: 'STARTER',
+                actions: ['NS'],
+                actor: 'Mementotlan Mace',
+                targets: [],
+                text: 'NS Mementotlan Mace',
+                story: '🔨 Mace ➡️ ⬇️ NS',
+                tags: ['starter', 'summon']
+            },
+    
+            {
+                id: 'mc02',
+                phase: 'STARTER',
+                actions: ['ACTIVATE', 'POP', 'SEARCH'],
+                actor: 'Mementotlan Mace',
+                targets: ['Mementotlan Shleepy'],
+                text: 'Activate Mementotlan Mace, popping itself, to search Mementotlan Shleepy',
+                story: '🔨 Mace ➡️ 💥 ➡️ 🔎 🐑 Shleepy',
+                tags: ['pop', 'search']
+            },
+    
+            {
+                id: 'mc03',
+                phase: 'SETUP',
+                actions: ['ACTIVATE', 'SS'],
+                actor: 'Mementotlan Shleepy',
+                targets: [],
+                text: 'Activate Mementotlan Shleepy in hand to SS itself',
+                story: '🐑 Shleepy ➡️ ⬆️ SS',
+                tags: ['summon']
+            },
+    
+            {
+                id: 'mc04',
+                phase: 'SETUP',
+                actions: ['ACTIVATE', 'SS'],
+                actor: 'Mementotlan Shleepy',
+                targets: ['Mementotlan Twin Dragon'],
+                text: 'Activate Mementotlan Shleepy to SS Mementotlan Twin Dragon',
+                story: '🐑 ➡️ 🐉🐉 Twin Dragon',
+                tags: ['fusion', 'summon']
+            },
+    
+            {
+                id: 'mc05',
+                phase: 'SETUP',
+                actions: ['ACTIVATE', 'POP', 'ADD'],
+                actor: 'Mementotlan Twin Dragon',
+                targets: [
+                    'Mementotlan Tatsunootoshigo',
+                    'Mementoal Tecuhtlica - Combined Creation'
+                ],
+                text: 'Activate Mementotlan Twin Dragon, popping itself, to add Mementotlan Tatsunootoshigo & Mementoal Tecuhtlica - Combined Creation',
+                story: '🐉🐉 Twin ➡️ 💥 ➡️ 🖐️ 🐉 Tatsu + 👹 CC2',
+                tags: ['pop', 'add']
+            },
+    
+            {
+                id: 'mc06',
+                phase: 'SETUP',
+                actions: ['FLOAT', 'SS'],
+                actor: 'Mementotlan Twin Dragon',
+                targets: ['Mementotlan Shleepy'],
+                text: 'Mementotlan Twin Dragon GY effect to SS Mementotlan Shleepy',
+                story: '🐉🐉 GY ➡️ 🫧 ➡️ 🐑 Shleepy',
+                tags: ['gy', 'float', 'summon']
+            },
+    
+            {
+                id: 'mc07',
+                phase: 'SETUP',
+                actions: ['SS', 'ACTIVATE', 'POP', 'SEND'],
+                actor: 'Mementotlan Tatsunootoshigo',
+                targets: [
+                    'Mementotlan Shleepy',
+                    'Mementotlan Ghattic',
+                    'Mementotlan Goblin'
+                ],
+                text: 'SS Mementotlan Tatsunootoshigo and activate it, popping Mementotlan Shleepy, to send Mementotlan Ghattic & Mementotlan Goblin',
+                story: '🐉 Tatsu ➡️ ⬆️ ➡️ 💥 🐑 ➡️ ⚰️ 🐱 + 👺',
+                tags: ['summon', 'pop', 'send', 'gy']
+            },
+    
+            {
+                id: 'mc08',
+                phase: 'SETUP',
+                actions: ['SEND'],
+                actor: 'Mementotlan Shleepy',
+                targets: ['Mementotlan Fusion'],
+                text: 'CL1 Mementotlan Shleepy to send Mementotlan Fusion',
+                story: '🐑 GY ➡️ ⚰️ 🌀 Fusion',
+                chain: { id: 'mace-chain-1', link: 1 },
+                tags: ['chain', 'gy', 'send']
+            },
+    
+            {
+                id: 'mc09',
+                phase: 'SETUP',
+                actions: ['SS'],
+                actor: 'Mementotlan Ghattic',
+                targets: [],
+                text: 'CL2 Mementotlan Ghattic to SS itself',
+                story: '🐱 Ghattic ➡️ ⬆️ SS',
+                chain: { id: 'mace-chain-1', link: 2 },
+                tags: ['chain', 'gy', 'summon']
+            },
+    
+            {
+                id: 'mc10',
+                phase: 'SETUP',
+                actions: ['ACTIVATE', 'ADD'],
+                actor: 'Mementotlan Ghattic',
+                targets: ['Mementotlan Fusion'],
+                text: 'Activate Mementotlan Ghattic to add Mementotlan Fusion',
+                story: '🐱 Ghattic ➡️ 🔎 🌀 Fusion',
+                tags: ['add', 'gy']
+            },
+    
+            {
+                id: 'mc11',
+                phase: 'SETUP',
+                actions: ['SS'],
+                actor: 'Cross-Sheep',
+                targets: [],
+                text: 'SS Cross-Sheep',
+                story: '🐏 Cross-Sheep ➡️ ⬆️',
+                tags: ['link', 'summon']
+            },
+    
+            {
+                id: 'mc12',
+                phase: 'BOARD_SETUP',
+                actions: ['ACTIVATE', 'SS', 'SHUFFLE'],
+                actor: 'Mementotlan Fusion',
+                targets: [
+                    'Mementomictlan Tecuhtlica - Creation King',
+                    'Mementotlan Mace',
+                    'Mementotlan Ghattic',
+                    'Mementotlan Twin Dragon'
+                ],
+                text: 'Activate Mementotlan Fusion to SS Mementomictlan Tecuhtlica - Creation King by shuffling Mementotlan Mace, Mementotlan Ghattic & Mementotlan Twin Dragon to Cross-Sheep’s zone',
+                story: '🌀 Fusion ➡️ 🔄 🔨 + 🐱 + 🐉🐉 ➡️ 👑 Tecuhtlica',
+                tags: ['fusion', 'summon', 'shuffle']
+            },
+    
+            {
+                id: 'mc13',
+                phase: 'BOARD_SETUP',
+                actions: ['SS'],
+                actor: 'Cross-Sheep',
+                targets: ['Mementotlan Dark Blade'],
+                text: 'CL1 Cross-Sheep to SS Mementotlan Dark Blade',
+                story: '🐏 ➡️ ⬆️ ⚔️ Dark Blade',
+                chain: { id: 'mace-chain-2', link: 1 },
+                tags: ['chain', 'summon']
+            },
+    
+            {
+                id: 'mc14',
+                phase: 'BOARD_SETUP',
+                actions: ['SEND'],
+                actor: 'Mementoal Tecuhtlica - Combined Creation',
+                targets: [
+                    'Mementomictlan Tecuhtlica - Creation King',
+                    'Mementotlan Akihiron',
+                    'Mementotlan Dark Blade'
+                ],
+                text: 'CL2 Mementoal Tecuhtlica - Combined Creation to send another Mementomictlan Tecuhtlica - Creation King, Mementotlan Akihiron & Mementotlan Dark Blade',
+                story: '👹 CC2 ➡️ ⚰️ 👑 + 🦖 + ⚔️',
+                chain: { id: 'mace-chain-2', link: 2 },
+                tags: ['chain', 'send', 'gy']
+            },
+    
+            {
+                id: 'mc15',
+                phase: 'GY_SETUP',
+                actions: ['SEARCH'],
+                actor: 'Mementomictlan Tecuhtlica - Creation King',
+                targets: ['Mementomictlan'],
+                text: 'Mementomictlan Tecuhtlica - Creation King GY effect to search Mementomictlan',
+                story: '👑 GY ➡️ 🔎 🏟️ Mementomictlan',
+                tags: ['gy', 'search']
+            },
+    
+            {
+                id: 'mc16',
+                phase: 'GY_SETUP',
+                actions: ['ACTIVATE'],
+                actor: 'Mementomictlan',
+                targets: [],
+                text: 'Activate Mementomictlan',
+                story: '🏟️ Mementomictlan ➡️ 🌎',
+                tags: ['field']
+            },
+    
+            {
+                id: 'mc17',
+                phase: 'BOARD_SETUP',
+                actions: ['ACTIVATE', 'POP', 'SS'],
+                actor: 'Mementotlan Dark Blade',
+                targets: [
+                    'Mementotlan Dark Blade',
+                    'Mementotlan Angwitch'
+                ],
+                text: 'Activate Mementotlan Dark Blade, popping itself, to SS Mementotlan Angwitch',
+                story: '⚔️ Dark Blade ➡️ 💥 ➡️ ⬆️ 🧙‍♀️ Angwitch',
+                tags: ['pop', 'summon']
+            },
+    
+            {
+                id: 'mc18',
+                phase: 'BOARD_SETUP',
+                actions: ['ADD'],
+                actor: 'Mementotlan Angwitch',
+                targets: ['Mementotlan Mace'],
+                text: 'CL1 Mementotlan Angwitch to add Mementotlan Mace',
+                story: '🧙‍♀️ Angwitch ➡️ 🔎 🔨 Mace',
+                chain: { id: 'mace-chain-3', link: 1 },
+                tags: ['chain', 'search']
+            },
+    
+            {
+                id: 'mc19',
+                phase: 'BOARD_SETUP',
+                actions: ['SS'],
+                actor: 'Mementomictlan',
+                targets: ['Mementotlan Goblin'],
+                text: 'CL2 Mementomictlan to SS Mementotlan Goblin',
+                story: '🏟️ ➡️ ⬆️ 👺 Goblin',
+                chain: { id: 'mace-chain-3', link: 2 },
+                tags: ['chain', 'summon']
+            },
+    
+            {
+                id: 'mc20',
+                phase: 'BOARD_SETUP',
+                actions: ['SS'],
+                actor: 'Mementotlan Akihiron',
+                targets: [],
+                text: 'CL3 Mementotlan Akihiron to SS itself',
+                story: '🦖 Akihiron ➡️ ⬆️ SS',
+                chain: { id: 'mace-chain-3', link: 3 },
+                tags: ['chain', 'summon', 'gy']
+            },
+    
+            {
+                id: 'mc21',
+                phase: 'BOARD_SETUP',
+                actions: ['ACTIVATE', 'POP', 'SEARCH'],
+                actor: 'Mementotlan Fusion',
+                targets: [
+                    'Mementotlan Akihiron',
+                    'Mementotlan Bone Party'
+                ],
+                text: 'Activate Mementotlan Fusion in the GY to pop Mementotlan Akihiron to add Mementotlan Bone Party',
+                story: '🌀 GY ➡️ 💥 🦖 ➡️ 🔎 🦴 Bone Party',
+                tags: ['gy', 'pop', 'search']
+            },
+    
+            {
+                id: 'mc22',
+                phase: 'BOARD_SETUP',
+                actions: ['ADD'],
+                actor: 'Mementotlan Akihiron',
+                targets: ['Mementotlan Fusion'],
+                text: 'Activate Mementotlan Akihiron to add banished Mementotlan Fusion',
+                story: '🦖 ➡️ ♻️ 🌀 Fusion',
+                tags: ['add', 'gy']
+            },
+    
+            {
+                id: 'mc23',
+                phase: 'BOARD_SETUP',
+                actions: ['SEND'],
+                actor: 'Mementotlan Goblin',
+                targets: [],
+                text: 'Activate Mementotlan Goblin to send a trap of choice and any name',
+                story: '👺 Goblin ➡️ ⚰️ 🂠 Trap + ❓',
+                tags: ['send', 'gy']
+            },
+    
+            {
+                id: 'mc24',
+                phase: 'BOARD_SETUP',
+                actions: ['ACTIVATE', 'POP', 'SS'],
+                actor: 'Mementotlan Bone Party',
+                targets: [
+                    'Mementoal Tecuhtlica - Combined Creation',
+                    'Mementotlan Ghattic'
+                ],
+                text: 'Activate Mementotlan Bone Party, popping Mementoal Tecuhtlica - Combined Creation in hand, to SS Mementotlan Ghattic',
+                story: '🦴 Bone Party ➡️ 💥 👹 CC2 ➡️ ⬆️ 🐱 Ghattic',
+                tags: ['pop', 'summon']
+            },
+    
+            {
+                id: 'mc25',
+                phase: 'END_BOARD',
+                actions: ['LINK_SUMMON'],
+                actor: 'Apollousa, Bow of the Goddess',
+                targets: [
+                    'Mementotlan Ghattic',
+                    'Cross-Sheep',
+                    'Mementotlan Angwitch'
+                ],
+                text: 'SS 3 mat Apollousa using Mementotlan Ghattic, Cross-Sheep & Mementotlan Angwitch',
+                story: '🐱 + 🐏 + 🧙‍♀️ ➡️ 🏹 Apollousa',
+                tags: ['link', 'end-board']
+            }
+        ],
+    
+        branches: [
+            {
+                id: 'mace-horned-dragon',
+                name: 'Horned Dragon',
+                emoji: '🦕',
+                difficulty: 5,
+                tags: ['variant', 'horned-dragon'],
+                endNote: 'VARIANT — Search Mementotlan-Horned Dragon instead of Mementotlan Mace. Goblin is not required.',
+                steps: [
+                    {
+                        id: 'mch01',
+                        phase: 'VARIANT',
+                        actions: ['ADD'],
+                        actor: 'Mementotlan Angwitch',
+                        targets: ['Mementotlan-Horned Dragon'],
+                        text: 'Activate Mementotlan Angwitch to add Mementotlan-Horned Dragon instead of Mementotlan Mace',
+                        story: '🧙‍♀️ Angwitch ➡️ 🔎 🦕 Horned Dragon',
+                        tags: ['variant', 'search']
+                    },
+    
+                    {
+                        id: 'mch02',
+                        phase: 'VARIANT',
+                        actions: ['SS'],
+                        actor: 'Mementoal Tecuhtlica - Combined Creation',
+                        targets: [],
+                        text: 'SS Mementoal Tecuhtlica - Combined Creation',
+                        story: '👹 CC2 ➡️ ⬆️',
+                        tags: ['variant', 'summon']
+                    }
+                ]
+            },
+    
+            {
+                id: 'mace-cc2-link-material',
+                name: 'CC2 as Link Material',
+                emoji: '👹🔗',
+                difficulty: 5,
+                tags: ['variant', 'link', 'apollousa', 's-p'],
+                endNote: 'VARIANT — Use Mementoal Tecuhtlica - Combined Creation as Link Material to make 3 mat Apollousa + S:P + trap of choice.',
+                steps: [
+                    {
+                        id: 'mcc01',
+                        phase: 'VARIANT',
+                        actions: ['SS'],
+                        actor: 'Mementoal Tecuhtlica - Combined Creation',
+                        targets: [],
+                        text: 'SS Mementoal Tecuhtlica - Combined Creation',
+                        story: '👹 CC2 ➡️ ⬆️',
+                        tags: ['variant', 'summon']
+                    },
+    
+                    {
+                        id: 'mcc02',
+                        phase: 'VARIANT',
+                        actions: ['LINK_SUMMON'],
+                        actor: 'Apollousa, Bow of the Goddess',
+                        targets: [],
+                        text: 'Link summon a 3 mat Apollousa',
+                        story: '🔻 3 corps ➡️ 🏹 Apollousa',
+                        tags: ['variant', 'link']
+                    },
+    
+                    {
+                        id: 'mcc03',
+                        phase: 'VARIANT',
+                        actions: ['SS'],
+                        actor: 'S:P Little Knight',
+                        targets: [],
+                        text: 'SS S:P Little Knight',
+                        story: '🗡️ S:P ➡️ ⬆️',
+                        tags: ['variant', 'link']
+                    }
+                ]
+            }
+        ]
     }
 ];
