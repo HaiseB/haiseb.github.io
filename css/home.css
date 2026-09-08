@@ -1,80 +1,79 @@
-/* minimal screen */
+/*
+ * Sur l'accueil, la sous-navigation reprend l'ensemble des liens du site.
+ * On masque donc dans la navbar les entrees deja visibles dans la sous-navigation
+ * afin d'eviter les doublons d'icones.
+ *
+ * Ordre de la sous-navigation :
+ * 1 Radio | 2 League | 3 Yu-Gi-Oh! | 4 Encyclopedie | 5 Github
+ * 6 Repas | 7 Taches | 8 Cadeaux | 9 Magic | 10 Developpeur | 11 Discord
+ */
+
+/* minimal screen : la sous-navigation affiche les items 1 a 3 */
 @media screen and (max-width: 575.9px) {
-    .sub-nav-item:nth-child(n+5) {
+    .sub-nav-item:nth-child(n+4) {
         display: none;
     }
 
-    #li-home {
-        display: none;
-    }
-
-    #li-amnios {
-        display: none;
-    }
-
-    #li-radio {
-        display: none;
-    }
-
+    #li-home,
+    #li-radio,
+    #li-league,
+    #li-yugioh,
     #profil-picture {
         display: none;
     }
 }
 
-/* medium screen */
+/* medium screen : la sous-navigation affiche les items 1 a 5 */
 @media screen and (max-width: 991.9px) and (min-width: 576px) {
-    .sub-nav-item:nth-child(n+7) {
+    .sub-nav-item:nth-child(n+6) {
         display: none;
     }
 
-    #li-home {
-        display: none;
-    }
-
-    #li-amnios {
-        display: none;
-    }
-
-    #li-radio {
-        display: none;
-    }
-
-    #li-league {
-        display: none;
-    }
-
+    #li-home,
+    #li-radio,
+    #li-league,
+    #li-yugioh,
+    #li-knowledge,
     #profil-picture {
         display: none;
     }
 }
 
-/* max screen */
+/* max screen : la sous-navigation affiche tous les items */
 @media screen and (min-width: 992px) {
-    #li-home {
-        display: none;
-    }
 
-    #li-amnios {
-        display: none;
-    }
-
-    #li-radio {
-        display: none;
-    }
-
-    #li-league {
-        display: none;
-    }
-
-    #li-mtg {
-        display: none;
-    }
-
-    #li-knowledge {
-        display: none;
-    }
-
+    #li-home,
+    #li-radio,
+    #li-league,
+    #li-yugioh,
+    #li-knowledge,
+    #li-amnios,
+    #li-mtg,
     #li-about {
         display: none;
     }
+}
+
+/* changelog */
+.changelog-avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+}
+
+.changelog-title {
+    overflow-wrap: anywhere;
+}
+
+.changelog-title:hover {
+    text-decoration: underline !important;
+}
+
+.changelog-body {
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+.changelog-day .list-group-item:hover {
+    background-color: #f8f9fa;
 }

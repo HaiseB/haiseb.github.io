@@ -1,10 +1,9 @@
 <!DOCTYPE HTML>
-<html lang="fr" data-bs-theme="dark">
+<html lang="fr">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#0e0b14" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -13,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/a3f0394999.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="../../asset/icon.png">
-    <title>HaiseB - Yu-Gi-Oh! Combo Trainer</title>
+    <title>HaiseB - Combo Breakdown</title>
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="stylesheet" href="./main.css">
 </head>
@@ -29,26 +28,74 @@
             <a class="navbar-brand" href="../../index.html">HaiseB</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                    <li class="nav-item" id="li-home">
                         <a class="nav-link" href="../../index.html"><i
                                 class="fa-solid fa-house"></i>&nbsp;&nbsp;Accueil</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="li-radio">
+                        <a class="nav-link" href="../radio/index.html"><i
+                                class="fa-solid fa-radio"></i>&nbsp;&nbsp;Radio</a>
+                    </li>
+                    <li class="nav-item" id="li-league">
+                        <a class="nav-link" href="../league/index.html"><i
+                                class="fa-solid fa-skull"></i>&nbsp;&nbsp;League</a>
+                    </li>
+                    <li class="nav-item" id="li-yugioh">
                         <a class="nav-link active" aria-current="page" href="./index.html"><i
                                 class="fa-solid fa-dragon"></i>&nbsp;&nbsp;Yu-Gi-Oh!</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../mtg/index.html"><i
-                                class="fa-brands fa-wizards-of-the-coast"></i>&nbsp;&nbsp;Magic</a>
-                    </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="li-knowledge">
                         <a class="nav-link" href="../knowledgeBase/index.html"><i
                                 class="fa-solid fa-book"></i>&nbsp;&nbsp;Encyclopédie</a>
+                    </li>
+                    <li class="nav-item dropdown" id="li-amnios">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Amnios
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item disabled" aria-disabled="true" tabindex="-1" href="#"><i
+                                        class="fa-solid fa-carrot"></i>&nbsp;&nbsp;Repas</a></li>
+                            <li><a class="dropdown-item disabled" aria-disabled="true" tabindex="-1" href="#"><i
+                                        class="fa-solid fa-list-check"></i>&nbsp;&nbsp;Tâches</a></li>
+                            <li><a class="dropdown-item disabled" aria-disabled="true" tabindex="-1" href="#"><i
+                                        class="fa-solid fa-gift"></i>&nbsp;&nbsp;Cadeaux</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item" id="li-mtg">
+                        <a class="nav-link disabled" aria-disabled="true" tabindex="-1" href="#"><i
+                                class="fa-brands fa-wizards-of-the-coast"></i>&nbsp;&nbsp;Magic</a>
+                    </li>
+                    <li class="nav-item dropdown" id="li-about">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            À propos du site
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="https://github.com/HaiseB"><i
+                                        class="fa-brands fa-github"></i>&nbsp;&nbsp;Github</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item disabled" aria-disabled="true" tabindex="-1" href="#"><i
+                                        class="fa-solid fa-code"></i>&nbsp;&nbsp;Développeur</a></li>
+                            <li><a class="dropdown-item disabled" aria-disabled="true" tabindex="-1" href="#"><i
+                                        class="fa-brands fa-discord"></i>&nbsp;&nbsp;Discord</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    <div class="bg-body-tertiary">
+        <div class="sub-nav d-flex justify-content-around">
+            <a class="btn sub-nav-item" href="./index.html#/"><i
+                    class="fa-solid fa-layer-group"></i>&nbsp;&nbsp;Decks</a>
+            <a class="btn sub-nav-item" href="https://db.ygoprodeck.com/" target="_blank" rel="noopener"><i
+                    class="fa-solid fa-database"></i>&nbsp;&nbsp;YGOPRODeck</a>
+        </div>
+    </div>
+    <hr>
 
     <div id="app" class="ygo-app"></div>
 

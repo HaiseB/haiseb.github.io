@@ -14,3 +14,9 @@
 .sub-nav-item:hover {
     background-color: #e9ecef;
 }
+
+.sub-nav-item.disabled {
+    color: #6c757d;
+    opacity: .5;
+    pointer-events: none;
+}

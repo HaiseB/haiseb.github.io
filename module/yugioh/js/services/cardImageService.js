@@ -2,9 +2,9 @@ import { getCard, loadCard } from './cardRepository.js';
 
 const PLACEHOLDER = 'data:image/svg+xml;utf8,' + encodeURIComponent(
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 146">
-        <rect width="100" height="146" rx="6" fill="#1b1720" stroke="#6c5a8f" stroke-width="2"/>
-        <circle cx="50" cy="62" r="20" fill="none" stroke="#6c5a8f" stroke-width="2"/>
-        <path d="M50 92 L50 118" stroke="#6c5a8f" stroke-width="2"/>
+        <rect width="100" height="146" rx="6" fill="#f8f9fa" stroke="#adb5bd" stroke-width="2"/>
+        <circle cx="50" cy="62" r="20" fill="none" stroke="#adb5bd" stroke-width="2"/>
+        <path d="M50 92 L50 118" stroke="#adb5bd" stroke-width="2"/>
     </svg>`
 );
 

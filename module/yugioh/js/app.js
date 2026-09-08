@@ -36,7 +36,7 @@ function screen(title, subtitle, backHash, content) {
 }
 
 function renderDecks() {
-    screen('Memento Combo Trainer', 'Choisis ton deck', null, [
+    screen('Combo Breakdown', 'Choisis ton deck', null, [
         el('div', { class: 'ygo-list' }, decks.map(deck =>
             el('a', { class: 'ygo-list-item', attrs: { href: `#/deck/${deck.id}` } }, [
                 el('span', { class: 'ygo-list-item__title', text: `${deck.emoji} ${deck.displayName}` }),
