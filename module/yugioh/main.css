@@ -104,6 +104,30 @@ body {
     transform: scale(.99);
 }
 
+.ygo-list-item--deck {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.ygo-list-item__body {
+    min-width: 0;
+}
+
+.ygo-deck-avatar {
+    flex: 0 0 auto;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--ygo-surface-2);
+    border: 1px solid var(--ygo-border);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
 .ygo-list-item__title {
     display: block;
     font-size: 1.05rem;

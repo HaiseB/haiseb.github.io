@@ -4,7 +4,7 @@
  * Changer de source = modifier ce fichier uniquement.
  */
 const API_URL = 'https://db.ygoprodeck.com/api/v7/cardinfo.php';
-const CACHE_KEY = 'ygo-trainer:cards:v1';
+const CACHE_KEY = 'ygo-trainer:cards:v2';
 const TTL_MS = 1000 * 60 * 60 * 24 * 30;
 const BACKOFF_MS = 1000 * 60 * 2;
 
@@ -51,6 +51,7 @@ function normalize(card) {
         desc: card.desc || null,
         imageSmall: image.image_url_small || image.image_url || null,
         imageLarge: image.image_url || null,
+        imageArt: image.image_url_cropped || null,
         fetchedAt: Date.now()
     };
 }

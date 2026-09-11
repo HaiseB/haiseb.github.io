@@ -11,6 +11,7 @@ export const decks = [
         name: 'Memento',
         displayName: 'Memento / Mementotlan',
         emoji: '🦴',
+        avatarCard: 'Mementoal Tecuhtlica - Combined Creation',
         cards: mementoCards,
         combos: mementoCombos
     }

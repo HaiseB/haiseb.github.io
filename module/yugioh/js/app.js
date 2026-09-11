@@ -1,6 +1,7 @@
 import { decks, getDeck } from './data/index.js';
 import { listRoutes, getRoute, routeCards } from './engine/combo.js';
 import { preloadDeck } from './services/cardRepository.js';
+import { artUrlSync, artUrl, placeholderArt } from './services/cardImageService.js';
 import { getEntry, recordResult, masteryLabel, masteryStars, successRate } from './services/progressService.js';
 import { formatTime } from './services/scoreService.js';
 import { el, clear, button } from './components/ui.js';
@@ -38,11 +39,31 @@ function screen(title, subtitle, backHash, content) {
 function renderDecks() {
     screen('Combo Breakdown', 'Choisis ton deck', null, [
         el('div', { class: 'ygo-list' }, decks.map(deck =>
-            el('a', { class: 'ygo-list-item', attrs: { href: `#/deck/${deck.id}` } }, [
-                el('span', { class: 'ygo-list-item__title', text: `${deck.emoji} ${deck.displayName}` }),
-                el('span', { class: 'ygo-list-item__sub', text: `${deck.combos.length} combo(s) · ${deck.cards.length} cartes` })
+            el('a', { class: 'ygo-list-item ygo-list-item--deck', attrs: { href: `#/deck/${deck.id}` } }, [
+                deckAvatar(deck),
+                el('span', { class: 'ygo-list-item__body' }, [
+                    el('span', { class: 'ygo-list-item__title', text: deck.displayName }),
+                    el('span', { class: 'ygo-list-item__sub', text: `${deck.combos.length} combo(s) · ${deck.cards.length} cartes` })
+                ])
             ])))
     ]);
+}
+
+/** Avatar rond du deck : artwork d'une de ses cartes, jamais une URL en dur. */
+function deckAvatar(deck) {
+    const cardName = deck.avatarCard || (deck.cards[0] && deck.cards[0].name);
+    if (!cardName) return el('span', { class: 'ygo-deck-avatar', text: deck.emoji });
+
+    const card = deck.cards.find(entry => entry.name === cardName);
+    const image = el('img', {
+        class: 'ygo-deck-avatar',
+        attrs: { src: artUrlSync(cardName), alt: cardName, loading: 'lazy' }
+    });
+    image.addEventListener('error', () => { image.src = placeholderArt(); });
+    artUrl(cardName, card && card.apiName).then(url => {
+        if (url && image.src !== url) image.src = url;
+    });
+    return image;
 }
 
 function renderRoutes(deckId) {
