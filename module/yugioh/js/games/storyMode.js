@@ -41,7 +41,7 @@ export function start(container, ctx) {
             beat.card
                 ? (isRevealed
                     ? el('div', { class: 'ygo-story-reveal' }, [
-                        cardView(beat.card, { size: 'medium', emoji: ctx.emojiOf(beat.card) }),
+                        cardView(beat.card, { size: 'medium', emoji: ctx.emojiOf(beat.card), displayMode: ctx.cardVisualMode }),
                         el('p', { class: 'ygo-story-technical', text: beat.step.text })
                     ])
                     : button('Qui est-ce ? 👁️', { variant: 'ghost', onClick: () => { revealed.add(index); render(); } }))

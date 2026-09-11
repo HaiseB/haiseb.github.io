@@ -5,19 +5,23 @@ import { imageUrlSync, imageUrl, placeholderImage } from '../services/cardImageS
  * Carte visuelle réutilisable.
  * Tailles : small | medium | large. États : selected, correct, wrong, locked.
  */
-export function cardView(name, { size = 'medium', emoji = '🃏', state = null, label = null, onClick = null, apiName = null } = {}) {
-    const classes = ['ygo-card', `ygo-card--${size}`];
+export function cardView(name, { size = 'medium', emoji = '🃏', state = null, label = null, onClick = null, apiName = null, displayMode = 'emoji' } = {}) {
+    const resolvedMode = displayMode === 'image' ? 'image' : 'emoji';
+    const classes = ['ygo-card', `ygo-card--${size}`, `ygo-card--${resolvedMode}`];
     if (state) classes.push(`is-${state}`);
 
-    const image = el('img', {
-        class: 'ygo-card__img',
-        attrs: { src: imageUrlSync(name), alt: name, loading: 'lazy' }
-    });
-    image.addEventListener('error', () => { image.src = placeholderImage(); });
+    let image = null;
+    if (resolvedMode === 'image') {
+        image = el('img', {
+            class: 'ygo-card__img',
+            attrs: { src: imageUrlSync(name), alt: name, loading: 'lazy' }
+        });
+        image.addEventListener('error', () => { image.src = placeholderImage(); });
 
-    imageUrl(name, apiName).then(url => {
-        if (url && image.src !== url) image.src = url;
-    });
+        imageUrl(name, apiName).then(url => {
+            if (url && image && image.src !== url) image.src = url;
+        });
+    }
 
     const node = el(onClick ? 'button' : 'div', {
         class: classes.join(' '),

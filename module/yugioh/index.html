@@ -11,6 +11,7 @@
         crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/a3f0394999.js" crossorigin="anonymous"></script>
+    <script src="../../js/settings.js"></script>
     <link rel="icon" type="image/x-icon" href="../../asset/icon.png">
     <title>HaiseB - Combo Breakdown</title>
     <link rel="stylesheet" href="../../css/main.css">
@@ -84,10 +85,46 @@
                         </ul>
                     </li>
                 </ul>
+                <div class="d-flex justify-content-around">
+                    <a data-bs-toggle="offcanvas" href="#offcanvasSettings" role="button"
+                        aria-controls="offcanvasSettings">
+                        <img src="https://i.ibb.co/nnzfDhd/Benjamin.jpg" class="rounded-circle me-2"
+                            alt="profil picture" size="36" height="36" width="36" id="profil-picture" />
+                    </a>
+                    <form class="d-flex" role="search" data-root-prefix="../..">
+                        <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Rechercher</button>
+                    </form>
+                </div>
             </div>
         </div>
     </nav>
     <hr>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettingsLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasSettingsLabel">
+                <img src="https://i.ibb.co/nnzfDhd/Benjamin.jpg" class="rounded-circle me-2" alt="profil picture"
+                    size="36" height="36" width="36" id="offcanvas-profil-picture" />
+                <span class="fs-4">Paramètres</span>
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <hr>
+            <form id="settingsForm">
+                <h6>Yu-Gi-Oh</h6>
+                <div class="mb-3">
+                    <label for="ygoCardVisualMode" class="form-label">Affichage des cartes</label>
+                    <select class="form-select" id="ygoCardVisualMode">
+                        <option value="emoji">Emoji (par défaut)</option>
+                        <option value="image">Image complète</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-success" data-bs-dismiss="offcanvas">Enregistrer les modifications</button>
+            </form>
+        </div>
+    </div>
 
     <div id="app" class="ygo-app"></div>
 

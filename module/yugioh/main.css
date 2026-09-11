@@ -291,6 +291,18 @@ body {
     font-size: 1rem;
 }
 
+.ygo-card--emoji .ygo-card__img {
+    display: none;
+}
+
+.ygo-card--emoji .ygo-card__emoji {
+    font-size: 1.45rem;
+}
+
+.ygo-card--image .ygo-card__emoji {
+    display: none;
+}
+
 .ygo-card__name {
     font-size: .72rem;
     line-height: 1.2;

@@ -15,6 +15,21 @@ const MODE_IDS = MODES.map(mode => mode.id);
 
 const root = document.getElementById('app');
 
+function getSettingsCookie() {
+    const cookieData = document.cookie.replace(/(?:(?:^|.*;\s*)formData\s*=\s*([^;]*).*$)|^.*$/, '$1');
+    if (!cookieData) return null;
+    try {
+        return JSON.parse(decodeURIComponent(cookieData));
+    } catch (_) {
+        return null;
+    }
+}
+
+function cardVisualMode() {
+    const settings = getSettingsCookie();
+    return settings && settings.ygoCardVisualMode === 'image' ? 'image' : 'emoji';
+}
+
 function emojiOfFactory(deck) {
     const byName = new Map(deck.cards.map(card => [card.name, card.emoji]));
     return name => byName.get(name) || '🃏';
@@ -137,6 +152,7 @@ function renderPlay(deckId, routeId, modeId) {
         deck,
         route,
         emojiOf: emojiOfFactory(deck),
+        cardVisualMode: cardVisualMode(),
         finish: result => {
             const entry = recordResult(deck.id, route.id, mode.id, result);
             renderResult(deck, route, mode, result, entry);
@@ -176,4 +192,5 @@ function router() {
 }
 
 window.addEventListener('hashchange', router);
+window.addEventListener('settings:updated', router);
 router();

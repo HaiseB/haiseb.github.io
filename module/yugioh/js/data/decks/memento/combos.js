@@ -294,341 +294,341 @@ export const combos = [
         ]
     },
     {
-    id: 'tatsunootoshigo-combo',
-    name: 'Tatsunootoshigo combo',
-    emoji: '🐉',
-    difficulty: 4,
-    tags: ['starter', '1-card'],
-    endNote: 'SETUP — Trap searched, with Mementomictlan Tecuhtlica - Creation King remaining on field.',
-    steps: [
-        {
-            id: 't01',
-            phase: 'STARTER',
-            actions: ['SS', 'ACTIVATE', 'POP', 'SEND'],
-            actor: 'Mementotlan Tatsunootoshigo',
-            targets: [
-                'Mementotlan Mace',
-                'Mementotlan Goblin',
-                'Mementotlan Ghattic'
-            ],
-            text: 'SS Mementotlan Tatsunootoshigo and activate it, popping itself, to send Mementotlan Mace, Mementotlan Goblin & Mementotlan Ghattic',
-            story: '🐉 Tatsunootoshigo ➡️ 💥 se détruit ➡️ ⚰️ 🔨 👺 🐱',
-            tags: ['summon', 'pop', 'send', 'gy']
-        },
+        id: 'tatsunootoshigo-combo',
+        name: 'Tatsunootoshigo combo',
+        emoji: '🐉',
+        difficulty: 4,
+        tags: ['starter', '1-card'],
+        endNote: 'SETUP — Trap searched, with Mementomictlan Tecuhtlica - Creation King remaining on field.',
+        steps: [
+            {
+                id: 't01',
+                phase: 'STARTER',
+                actions: ['SS', 'ACTIVATE', 'POP', 'SEND'],
+                actor: 'Mementotlan Tatsunootoshigo',
+                targets: [
+                    'Mementotlan Mace',
+                    'Mementotlan Goblin',
+                    'Mementotlan Ghattic'
+                ],
+                text: 'SS Mementotlan Tatsunootoshigo and activate it, popping itself, to send Mementotlan Mace, Mementotlan Goblin & Mementotlan Ghattic',
+                story: '🐉 Tatsunootoshigo ➡️ 💥 se détruit ➡️ ⚰️ 🔨 👺 🐱',
+                tags: ['summon', 'pop', 'send', 'gy']
+            },
 
-        {
-            id: 't02',
-            phase: 'SETUP',
-            actions: ['SS'],
-            actor: 'Mementotlan Ghattic',
-            targets: [],
-            text: 'Mementotlan Ghattic effect to SS itself',
-            story: '🐱 Ghattic ➡️ ⬆️ revient',
-            tags: ['gy', 'summon']
-        },
+            {
+                id: 't02',
+                phase: 'SETUP',
+                actions: ['SS'],
+                actor: 'Mementotlan Ghattic',
+                targets: [],
+                text: 'Mementotlan Ghattic effect to SS itself',
+                story: '🐱 Ghattic ➡️ ⬆️ revient',
+                tags: ['gy', 'summon']
+            },
 
-        {
-            id: 't03',
-            phase: 'SETUP',
-            actions: ['ACTIVATE', 'ADD'],
-            actor: 'Mementotlan Ghattic',
-            targets: ['Mementotlan Mace'],
-            text: 'Activate Mementotlan Ghattic to add Mementotlan Mace to hand',
-            story: '🐱 ➡️ 🖐️ récupère 🔨 Mace',
-            tags: ['add', 'gy']
-        },
+            {
+                id: 't03',
+                phase: 'SETUP',
+                actions: ['ACTIVATE', 'ADD'],
+                actor: 'Mementotlan Ghattic',
+                targets: ['Mementotlan Mace'],
+                text: 'Activate Mementotlan Ghattic to add Mementotlan Mace to hand',
+                story: '🐱 ➡️ 🖐️ récupère 🔨 Mace',
+                tags: ['add', 'gy']
+            },
 
-        {
-            id: 't04',
-            phase: 'SETUP',
-            actions: ['NS'],
-            actor: 'Mementotlan Mace',
-            targets: [],
-            text: 'NS Mementotlan Mace',
-            story: '🔨 Mace ➡️ ⬇️ Normal Summon',
-            tags: ['summon']
-        },
+            {
+                id: 't04',
+                phase: 'SETUP',
+                actions: ['NS'],
+                actor: 'Mementotlan Mace',
+                targets: [],
+                text: 'NS Mementotlan Mace',
+                story: '🔨 Mace ➡️ ⬇️ Normal Summon',
+                tags: ['summon']
+            },
 
-        {
-            id: 't05',
-            phase: 'SETUP',
-            actions: ['ACTIVATE', 'POP', 'SEARCH'],
-            actor: 'Mementotlan Mace',
-            targets: ['Mementotlan Fusion'],
-            text: 'Activate Mementotlan Mace, popping itself, to search Mementotlan Fusion',
-            story: '🔨 ➡️ 💥 ➡️ 🔎 🌀 Fusion',
-            tags: ['pop', 'search']
-        },
+            {
+                id: 't05',
+                phase: 'SETUP',
+                actions: ['ACTIVATE', 'POP', 'SEARCH'],
+                actor: 'Mementotlan Mace',
+                targets: ['Mementotlan Fusion'],
+                text: 'Activate Mementotlan Mace, popping itself, to search Mementotlan Fusion',
+                story: '🔨 ➡️ 💥 ➡️ 🔎 🌀 Fusion',
+                tags: ['pop', 'search']
+            },
 
-        {
-            id: 't06',
-            phase: 'SETUP',
-            actions: ['ACTIVATE', 'SS', 'SHUFFLE'],
-            actor: 'Mementotlan Fusion',
-            targets: [
-                'Mementomictlan Tecuhtlica - Creation King',
-                'Mementotlan Mace',
-                'Mementotlan Tatsunootoshigo',
-                'Mementotlan Goblin'
-            ],
-            text: 'Activate Mementotlan Fusion to SS Mementomictlan Tecuhtlica - Creation King by shuffling Mementotlan Mace, Mementotlan Tatsunootoshigo & Mementotlan Goblin',
-            story: '🌀 Fusion ➡️ 👑 Tecuhtlica',
-            tags: ['fusion', 'summon', 'shuffle']
-        },
+            {
+                id: 't06',
+                phase: 'SETUP',
+                actions: ['ACTIVATE', 'SS', 'SHUFFLE'],
+                actor: 'Mementotlan Fusion',
+                targets: [
+                    'Mementomictlan Tecuhtlica - Creation King',
+                    'Mementotlan Mace',
+                    'Mementotlan Tatsunootoshigo',
+                    'Mementotlan Goblin'
+                ],
+                text: 'Activate Mementotlan Fusion to SS Mementomictlan Tecuhtlica - Creation King by shuffling Mementotlan Mace, Mementotlan Tatsunootoshigo & Mementotlan Goblin',
+                story: '🌀 Fusion ➡️ 👑 Tecuhtlica',
+                tags: ['fusion', 'summon', 'shuffle']
+            },
 
-        {
-            id: 't07',
-            phase: 'GY_SETUP',
-            actions: ['ACTIVATE', 'SEND'],
-            actor: 'Mementomictlan Tecuhtlica - Creation King',
-            targets: [
-                'Mementomictlan Tecuhtlica - Creation King',
-                'Mementotlan Akihiron',
-                'Mementotlan Angwitch'
-            ],
-            text: 'Activate Mementomictlan Tecuhtlica - Creation King to send another Mementomictlan Tecuhtlica - Creation King, Mementotlan Akihiron & Mementotlan Angwitch',
-            story: '👑 ➡️ ⚰️ envoie 👑 🦖 🧙‍♀️',
-            tags: ['gy', 'send']
-        },
+            {
+                id: 't07',
+                phase: 'GY_SETUP',
+                actions: ['ACTIVATE', 'SEND'],
+                actor: 'Mementomictlan Tecuhtlica - Creation King',
+                targets: [
+                    'Mementomictlan Tecuhtlica - Creation King',
+                    'Mementotlan Akihiron',
+                    'Mementotlan Angwitch'
+                ],
+                text: 'Activate Mementomictlan Tecuhtlica - Creation King to send another Mementomictlan Tecuhtlica - Creation King, Mementotlan Akihiron & Mementotlan Angwitch',
+                story: '👑 ➡️ ⚰️ envoie 👑 🦖 🧙‍♀️',
+                tags: ['gy', 'send']
+            },
 
-        {
-            id: 't08',
-            phase: 'GY_SETUP',
-            actions: ['SEARCH'],
-            actor: 'Mementomictlan Tecuhtlica - Creation King',
-            targets: ['Mementomictlan'],
-            text: 'Mementomictlan Tecuhtlica - Creation King GY effect to search Mementomictlan',
-            story: '👑 (GY) ➡️ 🔎 🏟️ Mementomictlan',
-            tags: ['gy', 'search']
-        },
+            {
+                id: 't08',
+                phase: 'GY_SETUP',
+                actions: ['SEARCH'],
+                actor: 'Mementomictlan Tecuhtlica - Creation King',
+                targets: ['Mementomictlan'],
+                text: 'Mementomictlan Tecuhtlica - Creation King GY effect to search Mementomictlan',
+                story: '👑 (GY) ➡️ 🔎 🏟️ Mementomictlan',
+                tags: ['gy', 'search']
+            },
 
-        {
-            id: 't09',
-            phase: 'GY_SETUP',
-            actions: ['ACTIVATE'],
-            actor: 'Mementomictlan',
-            targets: [],
-            text: 'Activate Mementomictlan',
-            story: '🏟️ Le terrain s’installe',
-            tags: ['field']
-        },
+            {
+                id: 't09',
+                phase: 'GY_SETUP',
+                actions: ['ACTIVATE'],
+                actor: 'Mementomictlan',
+                targets: [],
+                text: 'Activate Mementomictlan',
+                story: '🏟️ Le terrain s’installe',
+                tags: ['field']
+            },
 
-        {
-            id: 't10',
-            phase: 'BOARD_SETUP',
-            actions: ['POP', 'SEARCH'],
-            actor: 'Mementotlan Fusion',
-            targets: [
-                'Mementotlan Ghattic',
-                'Mementotlan Bone Party'
-            ],
-            text: 'Activate Mementotlan Fusion in the GY to pop Mementotlan Ghattic to search Mementotlan Bone Party',
-            story: '🌀 (GY) ➡️ 💥 🐱 ➡️ 🔎 🦴 Bone Party',
-            tags: ['gy', 'pop', 'search']
-        },
+            {
+                id: 't10',
+                phase: 'BOARD_SETUP',
+                actions: ['POP', 'SEARCH'],
+                actor: 'Mementotlan Fusion',
+                targets: [
+                    'Mementotlan Ghattic',
+                    'Mementotlan Bone Party'
+                ],
+                text: 'Activate Mementotlan Fusion in the GY to pop Mementotlan Ghattic to search Mementotlan Bone Party',
+                story: '🌀 (GY) ➡️ 💥 🐱 ➡️ 🔎 🦴 Bone Party',
+                tags: ['gy', 'pop', 'search']
+            },
 
-        {
-            id: 't11',
-            phase: 'BOARD_SETUP',
-            actions: ['SS'],
-            actor: 'Mementotlan Akihiron',
-            targets: [],
-            text: 'Activate Mementotlan Akihiron in the GY to SS itself',
-            story: '🦖 Akihiron ➡️ ⬆️ revient',
-            tags: ['gy', 'summon']
-        },
+            {
+                id: 't11',
+                phase: 'BOARD_SETUP',
+                actions: ['SS'],
+                actor: 'Mementotlan Akihiron',
+                targets: [],
+                text: 'Activate Mementotlan Akihiron in the GY to SS itself',
+                story: '🦖 Akihiron ➡️ ⬆️ revient',
+                tags: ['gy', 'summon']
+            },
 
-        {
-            id: 't12',
-            phase: 'BOARD_SETUP',
-            actions: ['ACTIVATE', 'POP', 'SUMMON'],
-            actor: 'Mementotlan Bone Party',
-            targets: [
-                'Mementotlan Akihiron',
-                'Mementotlan Dark Blade'
-            ],
-            text: 'Activate Mementotlan Bone Party, popping Mementotlan Akihiron, to SS Mementotlan Dark Blade from Deck',
-            story: '🦴 ➡️ 💥 🦖 ➡️ ⚔️ Dark Blade',
-            tags: ['pop', 'summon']
-        },
+            {
+                id: 't12',
+                phase: 'BOARD_SETUP',
+                actions: ['ACTIVATE', 'POP', 'SUMMON'],
+                actor: 'Mementotlan Bone Party',
+                targets: [
+                    'Mementotlan Akihiron',
+                    'Mementotlan Dark Blade'
+                ],
+                text: 'Activate Mementotlan Bone Party, popping Mementotlan Akihiron, to SS Mementotlan Dark Blade from Deck',
+                story: '🦴 ➡️ 💥 🦖 ➡️ ⚔️ Dark Blade',
+                tags: ['pop', 'summon']
+            },
 
-        {
-            id: 't13',
-            phase: 'BOARD_SETUP',
-            actions: ['SS', 'ADD'],
-            actor: 'Mementomictlan',
-            targets: [
-                'Mementotlan Angwitch',
-                'Mementotlan Fusion'
-            ],
-            text: 'CL1 Mementomictlan to SS Mementotlan Angwitch from GY, CL2 Mementotlan Akihiron to add banished Mementotlan Fusion to hand',
-            story: '🏟️ ➡️ 🧙‍♀️ Angwitch + 🦖 ➡️ ♻️ 🌀 Fusion',
-            chain: { id: 'tatsunoo-chain-1', link: 1 },
-            tags: ['chain', 'summon', 'add', 'gy']
-        },
+            {
+                id: 't13',
+                phase: 'BOARD_SETUP',
+                actions: ['SS', 'ADD'],
+                actor: 'Mementomictlan',
+                targets: [
+                    'Mementotlan Angwitch',
+                    'Mementotlan Fusion'
+                ],
+                text: 'CL1 Mementomictlan to SS Mementotlan Angwitch from GY, CL2 Mementotlan Akihiron to add banished Mementotlan Fusion to hand',
+                story: '🏟️ ➡️ 🧙‍♀️ Angwitch + 🦖 ➡️ ♻️ 🌀 Fusion',
+                chain: { id: 'tatsunoo-chain-1', link: 1 },
+                tags: ['chain', 'summon', 'add', 'gy']
+            },
 
-        {
-            id: 't14',
-            phase: 'BOARD_SETUP',
-            actions: ['ADD'],
-            actor: 'Mementotlan Angwitch',
-            targets: ['Mementotlan Shleepy'],
-            text: 'Activate Mementotlan Angwitch to add Mementotlan Shleepy',
-            story: '🧙‍♀️ ➡️ 🔎 🐑 Shleepy',
-            tags: ['search', 'add']
-        },
+            {
+                id: 't14',
+                phase: 'BOARD_SETUP',
+                actions: ['ADD'],
+                actor: 'Mementotlan Angwitch',
+                targets: ['Mementotlan Shleepy'],
+                text: 'Activate Mementotlan Angwitch to add Mementotlan Shleepy',
+                story: '🧙‍♀️ ➡️ 🔎 🐑 Shleepy',
+                tags: ['search', 'add']
+            },
 
-        {
-            id: 't15',
-            phase: 'BOARD_SETUP',
-            actions: ['SS'],
-            actor: 'Mementotlan Shleepy',
-            targets: [
-                'Mementotlan Twin Dragon',
-                'Mementotlan Angwitch'
-            ],
-            text: 'Activate Mementotlan Shleepy to SS itself, then activate it again to fuse Mementotlan Shleepy + Mementotlan Angwitch into Mementotlan Twin Dragon',
-            story: '🐑 ➡️ ⬆️ ➡️ 🐑 + 🧙‍♀️ ➡️ 🐉🐉',
-            tags: ['summon', 'fusion']
-        },
+            {
+                id: 't15',
+                phase: 'BOARD_SETUP',
+                actions: ['SS'],
+                actor: 'Mementotlan Shleepy',
+                targets: [
+                    'Mementotlan Twin Dragon',
+                    'Mementotlan Angwitch'
+                ],
+                text: 'Activate Mementotlan Shleepy to SS itself, then activate it again to fuse Mementotlan Shleepy + Mementotlan Angwitch into Mementotlan Twin Dragon',
+                story: '🐑 ➡️ ⬆️ ➡️ 🐑 + 🧙‍♀️ ➡️ 🐉🐉',
+                tags: ['summon', 'fusion']
+            },
 
-        {
-            id: 't16',
-            phase: 'BOARD_SETUP',
-            actions: ['ACTIVATE', 'POP', 'ADD'],
-            actor: 'Mementotlan Twin Dragon',
-            targets: [
-                'Mementotlan Twin Dragon',
-                'Mementotlan-Horned Dragon',
-                'Mementoal Tecuhtlica - Combined Creation'
-            ],
-            text: 'Activate Mementotlan Twin Dragon, popping itself, to add Mementotlan-Horned Dragon and Mementoal Tecuhtlica - Combined Creation',
-            story: '🐉🐉 ➡️ 💥 ➡️ 🖐️ 🦕 + 👹',
-            tags: ['pop', 'add']
-        },
+            {
+                id: 't16',
+                phase: 'BOARD_SETUP',
+                actions: ['ACTIVATE', 'POP', 'ADD'],
+                actor: 'Mementotlan Twin Dragon',
+                targets: [
+                    'Mementotlan Twin Dragon',
+                    'Mementotlan-Horned Dragon',
+                    'Mementoal Tecuhtlica - Combined Creation'
+                ],
+                text: 'Activate Mementotlan Twin Dragon, popping itself, to add Mementotlan-Horned Dragon and Mementoal Tecuhtlica - Combined Creation',
+                story: '🐉🐉 ➡️ 💥 ➡️ 🖐️ 🦕 + 👹',
+                tags: ['pop', 'add']
+            },
 
-        {
-            id: 't17',
-            phase: 'BOARD_SETUP',
-            actions: ['FLOAT'],
-            actor: 'Mementotlan Twin Dragon',
-            targets: ['Mementotlan Shleepy'],
-            text: 'Mementotlan Twin Dragon GY effect to float into Mementotlan Shleepy',
-            story: '🐉🐉 (GY) ➡️ 🫧 ➡️ 🐑 Shleepy',
-            tags: ['gy', 'float', 'summon']
-        },
+            {
+                id: 't17',
+                phase: 'BOARD_SETUP',
+                actions: ['FLOAT'],
+                actor: 'Mementotlan Twin Dragon',
+                targets: ['Mementotlan Shleepy'],
+                text: 'Mementotlan Twin Dragon GY effect to float into Mementotlan Shleepy',
+                story: '🐉🐉 (GY) ➡️ 🫧 ➡️ 🐑 Shleepy',
+                tags: ['gy', 'float', 'summon']
+            },
 
-        {
-            id: 't18',
-            phase: 'BOARD_SETUP',
-            actions: ['ACTIVATE', 'POP', 'SS'],
-            actor: 'Mementotlan Dark Blade',
-            targets: [
-                'Mementotlan Shleepy',
-                'Mementotlan Goblin'
-            ],
-            text: 'Activate Mementotlan Dark Blade, popping Mementotlan Shleepy, to SS Mementotlan Goblin from Deck',
-            story: '⚔️ ➡️ 💥 🐑 ➡️ ⬆️ 👺 Goblin',
-            tags: ['pop', 'summon']
-        },
+            {
+                id: 't18',
+                phase: 'BOARD_SETUP',
+                actions: ['ACTIVATE', 'POP', 'SS'],
+                actor: 'Mementotlan Dark Blade',
+                targets: [
+                    'Mementotlan Shleepy',
+                    'Mementotlan Goblin'
+                ],
+                text: 'Activate Mementotlan Dark Blade, popping Mementotlan Shleepy, to SS Mementotlan Goblin from Deck',
+                story: '⚔️ ➡️ 💥 🐑 ➡️ ⬆️ 👺 Goblin',
+                tags: ['pop', 'summon']
+            },
 
-        {
-            id: 't19',
-            phase: 'BOARD_SETUP',
-            actions: ['SEND'],
-            actor: 'Mementotlan Shleepy',
-            targets: [],
-            text: 'Mementotlan Shleepy GY effect to send a trap of choice',
-            story: '🐑 (GY) ➡️ ⚰️ envoie un piège',
-            tags: ['gy', 'send']
-        },
+            {
+                id: 't19',
+                phase: 'BOARD_SETUP',
+                actions: ['SEND'],
+                actor: 'Mementotlan Shleepy',
+                targets: [],
+                text: 'Mementotlan Shleepy GY effect to send a trap of choice',
+                story: '🐑 (GY) ➡️ ⚰️ envoie un piège',
+                tags: ['gy', 'send']
+            },
 
-        {
-            id: 't20',
-            phase: 'BOARD_SETUP',
-            actions: ['LINK_SUMMON'],
-            actor: 'Cross-Sheep',
-            targets: [
-                'Mementotlan Dark Blade',
-                'Mementotlan Goblin'
-            ],
-            text: 'Summon Cross-Sheep using Mementotlan Dark Blade and Mementotlan Goblin',
-            story: '⚔️ + 👺 ➡️ 🐏 Cross-Sheep',
-            tags: ['link', 'summon']
-        },
+            {
+                id: 't20',
+                phase: 'BOARD_SETUP',
+                actions: ['LINK_SUMMON'],
+                actor: 'Cross-Sheep',
+                targets: [
+                    'Mementotlan Dark Blade',
+                    'Mementotlan Goblin'
+                ],
+                text: 'Summon Cross-Sheep using Mementotlan Dark Blade and Mementotlan Goblin',
+                story: '⚔️ + 👺 ➡️ 🐏 Cross-Sheep',
+                tags: ['link', 'summon']
+            },
 
-        {
-            id: 't21',
-            phase: 'BOARD_SETUP',
-            actions: ['SS'],
-            actor: 'Mementotlan-Horned Dragon',
-            targets: [],
-            text: 'SS Mementotlan-Horned Dragon to Cross-Sheep’s link zone',
-            story: '🦕 ➡️ ⬆️ dans la zone de 🐏',
-            tags: ['summon']
-        },
+            {
+                id: 't21',
+                phase: 'BOARD_SETUP',
+                actions: ['SS'],
+                actor: 'Mementotlan-Horned Dragon',
+                targets: [],
+                text: 'SS Mementotlan-Horned Dragon to Cross-Sheep’s link zone',
+                story: '🦕 ➡️ ⬆️ dans la zone de 🐏',
+                tags: ['summon']
+            },
 
-        {
-            id: 't22',
-            phase: 'BOARD_SETUP',
-            actions: ['ACTIVATE', 'SS'],
-            actor: 'Cross-Sheep',
-            targets: [],
-            text: 'Activate Cross-Sheep to SS any body',
-            story: '🐏 ➡️ ⬆️ invoque un corps',
-            tags: ['summon', 'extension']
-        },
+            {
+                id: 't22',
+                phase: 'BOARD_SETUP',
+                actions: ['ACTIVATE', 'SS'],
+                actor: 'Cross-Sheep',
+                targets: [],
+                text: 'Activate Cross-Sheep to SS any body',
+                story: '🐏 ➡️ ⬆️ invoque un corps',
+                tags: ['summon', 'extension']
+            },
 
-        {
-            id: 't23',
-            phase: 'END_BOARD',
-            actions: ['LINK_SUMMON'],
-            actor: 'Apollousa, Bow of the Goddess',
-            targets: [],
-            text: 'Link summon a 3 mat Apollousa while keeping Mementomictlan Tecuhtlica - Creation King on field',
-            story: '🔻 3 corps ➡️ 🏹 Apollousa',
-            tags: ['link', 'end-board']
-        },
+            {
+                id: 't23',
+                phase: 'END_BOARD',
+                actions: ['LINK_SUMMON'],
+                actor: 'Apollousa, Bow of the Goddess',
+                targets: [],
+                text: 'Link summon a 3 mat Apollousa while keeping Mementomictlan Tecuhtlica - Creation King on field',
+                story: '🔻 3 corps ➡️ 🏹 Apollousa',
+                tags: ['link', 'end-board']
+            },
 
-        {
-            id: 't24',
-            phase: 'END_BOARD',
-            actions: ['SS', 'SHUFFLE'],
-            actor: 'Mementoal Tecuhtlica - Combined Creation',
-            targets: [
-                'Mementomictlan Tecuhtlica - Creation King',
-                'Mementotlan Akihiron',
-                'Mementotlan Angwitch',
-                'Mementotlan Dark Blade'
-            ],
-            text: 'SS Mementoal Tecuhtlica - Combined Creation by shuffling everything except Mementotlan Akihiron, Mementotlan Angwitch & Mementotlan Dark Blade',
-            story: '👹 arrive ➡️ on garde 🦖 🧙‍♀️ ⚔️ au GY',
-            tags: ['fusion', 'summon', 'shuffle']
-        },
+            {
+                id: 't24',
+                phase: 'END_BOARD',
+                actions: ['SS', 'SHUFFLE'],
+                actor: 'Mementoal Tecuhtlica - Combined Creation',
+                targets: [
+                    'Mementomictlan Tecuhtlica - Creation King',
+                    'Mementotlan Akihiron',
+                    'Mementotlan Angwitch',
+                    'Mementotlan Dark Blade'
+                ],
+                text: 'SS Mementoal Tecuhtlica - Combined Creation by shuffling everything except Mementotlan Akihiron, Mementotlan Angwitch & Mementotlan Dark Blade',
+                story: '👹 arrive ➡️ on garde 🦖 🧙‍♀️ ⚔️ au GY',
+                tags: ['fusion', 'summon', 'shuffle']
+            },
 
-        {
-            id: 't25',
-            phase: 'END_BOARD',
-            actions: ['SET'],
-            actor: 'Mementotlan Fusion',
-            targets: [],
-            text: 'Set Mementotlan Fusion',
-            story: '🂠 On pose 🌀 Fusion',
-            tags: ['set']
-        },
+            {
+                id: 't25',
+                phase: 'END_BOARD',
+                actions: ['SET'],
+                actor: 'Mementotlan Fusion',
+                targets: [],
+                text: 'Set Mementotlan Fusion',
+                story: '🂠 On pose 🌀 Fusion',
+                tags: ['set']
+            },
 
-        {
-            id: 't26',
-            phase: 'END_BOARD',
-            actions: ['SET'],
-            actor: 'Mementomictlan',
-            targets: [],
-            text: 'During the End Phase, Field Spell sets trap of choice',
-            story: '🏟️ End Phase ➡️ 🂠 piège — 🏁 END BOARD',
-            tags: ['set', 'end-board']
-        }
-    ],
-    branches: []
+            {
+                id: 't26',
+                phase: 'END_BOARD',
+                actions: ['SET'],
+                actor: 'Mementomictlan',
+                targets: [],
+                text: 'During the End Phase, Field Spell sets trap of choice',
+                story: '🏟️ End Phase ➡️ 🂠 piège — 🏁 END BOARD',
+                tags: ['set', 'end-board']
+            }
+        ],
+        branches: []
     },
     {
         id: 'goblin-breakout-combo',
@@ -648,7 +648,7 @@ export const combos = [
                 story: '👺 Goblin ➡️ ⬇️ NS',
                 tags: ['starter', 'summon']
             },
-    
+
             {
                 id: 'gb02',
                 phase: 'STARTER',
@@ -662,7 +662,7 @@ export const combos = [
                 story: '👺 Goblin ➡️ 💥 ➡️ ⚰️ 🐱 Ghattic + 🌀 Fusion',
                 tags: ['pop', 'send', 'gy']
             },
-    
+
             {
                 id: 'gb03',
                 phase: 'SETUP',
@@ -673,7 +673,7 @@ export const combos = [
                 story: '🐱 Ghattic ➡️ ⬆️ SS',
                 tags: ['gy', 'summon']
             },
-    
+
             {
                 id: 'gb04',
                 phase: 'SETUP',
@@ -684,7 +684,7 @@ export const combos = [
                 story: '🐱 Ghattic ➡️ 🔎 🌀 Fusion',
                 tags: ['gy', 'add']
             },
-    
+
             {
                 id: 'gb05',
                 phase: 'SETUP',
@@ -695,7 +695,7 @@ export const combos = [
                 story: '🌀 Fusion ➡️ 🐉🐉 Twin Dragon',
                 tags: ['fusion', 'summon']
             },
-    
+
             {
                 id: 'gb06',
                 phase: 'SETUP',
@@ -709,7 +709,7 @@ export const combos = [
                 story: '🐉🐉 Twin ➡️ 💥 ➡️ 🖐️ 🐑 Shleepy + 🐉 Tatsu',
                 tags: ['pop', 'add']
             },
-    
+
             {
                 id: 'gb07',
                 phase: 'SETUP',
@@ -720,7 +720,7 @@ export const combos = [
                 story: '🐉🐉 GY ➡️ 🫧 ➡️ 🐱 Ghattic',
                 tags: ['gy', 'float', 'summon']
             },
-    
+
             {
                 id: 'gb08',
                 phase: 'SETUP',
@@ -731,7 +731,7 @@ export const combos = [
                 story: '🐑 Shleepy ➡️ ⬆️ SS',
                 tags: ['summon']
             },
-    
+
             {
                 id: 'gb09',
                 phase: 'SETUP',
@@ -742,7 +742,7 @@ export const combos = [
                 story: '🐑 ➡️ 👑 Tecuhtlica',
                 tags: ['summon', 'fusion']
             },
-    
+
             {
                 id: 'gb10',
                 phase: 'GY_SETUP',
@@ -757,7 +757,7 @@ export const combos = [
                 story: '👑 ➡️ ⚰️ 👑 + 🦖 + ⚔️',
                 tags: ['gy', 'send']
             },
-    
+
             {
                 id: 'gb11',
                 phase: 'GY_SETUP',
@@ -768,7 +768,7 @@ export const combos = [
                 story: '👑 GY ➡️ 🔎 🏟️ Mementomictlan',
                 tags: ['gy', 'search']
             },
-    
+
             {
                 id: 'gb12',
                 phase: 'GY_SETUP',
@@ -779,7 +779,7 @@ export const combos = [
                 story: '🏟️ Mementomictlan ➡️ 🌎',
                 tags: ['field']
             },
-    
+
             {
                 id: 'gb13',
                 phase: 'BOARD_SETUP',
@@ -792,7 +792,7 @@ export const combos = [
                 story: '🌀 GY ➡️ 💥 👑 ➡️ 🔎 🂠 Trap',
                 tags: ['gy', 'pop', 'search']
             },
-    
+
             {
                 id: 'gb14',
                 phase: 'BOARD_SETUP',
@@ -804,7 +804,7 @@ export const combos = [
                 chain: { id: 'goblin-chain-1', link: 1 },
                 tags: ['chain', 'summon']
             },
-    
+
             {
                 id: 'gb15',
                 phase: 'BOARD_SETUP',
@@ -816,7 +816,7 @@ export const combos = [
                 chain: { id: 'goblin-chain-1', link: 2 },
                 tags: ['chain', 'summon', 'gy']
             },
-    
+
             {
                 id: 'gb16',
                 phase: 'BOARD_SETUP',
@@ -830,7 +830,7 @@ export const combos = [
                 story: '⚔️ ➡️ 💥 🦖 ➡️ ⬆️ 🧙‍♀️ Angwitch',
                 tags: ['pop', 'summon']
             },
-    
+
             {
                 id: 'gb17',
                 phase: 'BOARD_SETUP',
@@ -842,7 +842,7 @@ export const combos = [
                 chain: { id: 'goblin-chain-2', link: 1 },
                 tags: ['chain', 'search']
             },
-    
+
             {
                 id: 'gb18',
                 phase: 'BOARD_SETUP',
@@ -854,7 +854,7 @@ export const combos = [
                 chain: { id: 'goblin-chain-2', link: 2 },
                 tags: ['chain', 'add', 'gy']
             },
-    
+
             {
                 id: 'gb19',
                 phase: 'END_BOARD',
@@ -865,7 +865,7 @@ export const combos = [
                 story: '🗡️ S:P ➡️ ⬆️',
                 tags: ['link', 'summon', 'end-board']
             },
-    
+
             {
                 id: 'gb20',
                 phase: 'END_BOARD',
@@ -882,7 +882,7 @@ export const combos = [
                 tags: ['fusion', 'summon', 'shuffle', 'end-board']
             }
         ],
-    
+
         branches: [
             {
                 id: 'goblin-horned-bone-party',
@@ -902,7 +902,7 @@ export const combos = [
                         story: '🐉🐉 ➡️ 🔎 ⚔️ Dark Blade',
                         tags: ['variant', 'search']
                     },
-    
+
                     {
                         id: 'gbh02',
                         phase: 'VARIANT',
@@ -916,7 +916,7 @@ export const combos = [
                         story: '🌀 GY ➡️ 💥 👑 ➡️ 🔎 🦴 Bone Party',
                         tags: ['variant', 'gy', 'pop', 'search']
                     },
-    
+
                     {
                         id: 'gbh03',
                         phase: 'VARIANT',
@@ -927,7 +927,7 @@ export const combos = [
                         story: '👑 ➡️ ⚰️ 👹 Combined Creation',
                         tags: ['variant', 'send']
                     },
-    
+
                     {
                         id: 'gbh04',
                         phase: 'VARIANT',
@@ -960,7 +960,7 @@ export const combos = [
                 story: '🔨 Mace ➡️ ⬇️ NS',
                 tags: ['starter', 'summon']
             },
-    
+
             {
                 id: 'mc02',
                 phase: 'STARTER',
@@ -971,7 +971,7 @@ export const combos = [
                 story: '🔨 Mace ➡️ 💥 ➡️ 🔎 🐑 Shleepy',
                 tags: ['pop', 'search']
             },
-    
+
             {
                 id: 'mc03',
                 phase: 'SETUP',
@@ -982,7 +982,7 @@ export const combos = [
                 story: '🐑 Shleepy ➡️ ⬆️ SS',
                 tags: ['summon']
             },
-    
+
             {
                 id: 'mc04',
                 phase: 'SETUP',
@@ -993,7 +993,7 @@ export const combos = [
                 story: '🐑 ➡️ 🐉🐉 Twin Dragon',
                 tags: ['fusion', 'summon']
             },
-    
+
             {
                 id: 'mc05',
                 phase: 'SETUP',
@@ -1007,7 +1007,7 @@ export const combos = [
                 story: '🐉🐉 Twin ➡️ 💥 ➡️ 🖐️ 🐉 Tatsu + 👹 CC2',
                 tags: ['pop', 'add']
             },
-    
+
             {
                 id: 'mc06',
                 phase: 'SETUP',
@@ -1018,7 +1018,7 @@ export const combos = [
                 story: '🐉🐉 GY ➡️ 🫧 ➡️ 🐑 Shleepy',
                 tags: ['gy', 'float', 'summon']
             },
-    
+
             {
                 id: 'mc07',
                 phase: 'SETUP',
@@ -1033,7 +1033,7 @@ export const combos = [
                 story: '🐉 Tatsu ➡️ ⬆️ ➡️ 💥 🐑 ➡️ ⚰️ 🐱 + 👺',
                 tags: ['summon', 'pop', 'send', 'gy']
             },
-    
+
             {
                 id: 'mc08',
                 phase: 'SETUP',
@@ -1045,7 +1045,7 @@ export const combos = [
                 chain: { id: 'mace-chain-1', link: 1 },
                 tags: ['chain', 'gy', 'send']
             },
-    
+
             {
                 id: 'mc09',
                 phase: 'SETUP',
@@ -1057,7 +1057,7 @@ export const combos = [
                 chain: { id: 'mace-chain-1', link: 2 },
                 tags: ['chain', 'gy', 'summon']
             },
-    
+
             {
                 id: 'mc10',
                 phase: 'SETUP',
@@ -1068,7 +1068,7 @@ export const combos = [
                 story: '🐱 Ghattic ➡️ 🔎 🌀 Fusion',
                 tags: ['add', 'gy']
             },
-    
+
             {
                 id: 'mc11',
                 phase: 'SETUP',
@@ -1079,7 +1079,7 @@ export const combos = [
                 story: '🐏 Cross-Sheep ➡️ ⬆️',
                 tags: ['link', 'summon']
             },
-    
+
             {
                 id: 'mc12',
                 phase: 'BOARD_SETUP',
@@ -1095,7 +1095,7 @@ export const combos = [
                 story: '🌀 Fusion ➡️ 🔄 🔨 + 🐱 + 🐉🐉 ➡️ 👑 Tecuhtlica',
                 tags: ['fusion', 'summon', 'shuffle']
             },
-    
+
             {
                 id: 'mc13',
                 phase: 'BOARD_SETUP',
@@ -1107,7 +1107,7 @@ export const combos = [
                 chain: { id: 'mace-chain-2', link: 1 },
                 tags: ['chain', 'summon']
             },
-    
+
             {
                 id: 'mc14',
                 phase: 'BOARD_SETUP',
@@ -1123,7 +1123,7 @@ export const combos = [
                 chain: { id: 'mace-chain-2', link: 2 },
                 tags: ['chain', 'send', 'gy']
             },
-    
+
             {
                 id: 'mc15',
                 phase: 'GY_SETUP',
@@ -1134,7 +1134,7 @@ export const combos = [
                 story: '👑 GY ➡️ 🔎 🏟️ Mementomictlan',
                 tags: ['gy', 'search']
             },
-    
+
             {
                 id: 'mc16',
                 phase: 'GY_SETUP',
@@ -1145,7 +1145,7 @@ export const combos = [
                 story: '🏟️ Mementomictlan ➡️ 🌎',
                 tags: ['field']
             },
-    
+
             {
                 id: 'mc17',
                 phase: 'BOARD_SETUP',
@@ -1159,7 +1159,7 @@ export const combos = [
                 story: '⚔️ Dark Blade ➡️ 💥 ➡️ ⬆️ 🧙‍♀️ Angwitch',
                 tags: ['pop', 'summon']
             },
-    
+
             {
                 id: 'mc18',
                 phase: 'BOARD_SETUP',
@@ -1171,7 +1171,7 @@ export const combos = [
                 chain: { id: 'mace-chain-3', link: 1 },
                 tags: ['chain', 'search']
             },
-    
+
             {
                 id: 'mc19',
                 phase: 'BOARD_SETUP',
@@ -1183,7 +1183,7 @@ export const combos = [
                 chain: { id: 'mace-chain-3', link: 2 },
                 tags: ['chain', 'summon']
             },
-    
+
             {
                 id: 'mc20',
                 phase: 'BOARD_SETUP',
@@ -1195,7 +1195,7 @@ export const combos = [
                 chain: { id: 'mace-chain-3', link: 3 },
                 tags: ['chain', 'summon', 'gy']
             },
-    
+
             {
                 id: 'mc21',
                 phase: 'BOARD_SETUP',
@@ -1209,7 +1209,7 @@ export const combos = [
                 story: '🌀 GY ➡️ 💥 🦖 ➡️ 🔎 🦴 Bone Party',
                 tags: ['gy', 'pop', 'search']
             },
-    
+
             {
                 id: 'mc22',
                 phase: 'BOARD_SETUP',
@@ -1220,7 +1220,7 @@ export const combos = [
                 story: '🦖 ➡️ ♻️ 🌀 Fusion',
                 tags: ['add', 'gy']
             },
-    
+
             {
                 id: 'mc23',
                 phase: 'BOARD_SETUP',
@@ -1231,7 +1231,7 @@ export const combos = [
                 story: '👺 Goblin ➡️ ⚰️ 🂠 Trap + ❓',
                 tags: ['send', 'gy']
             },
-    
+
             {
                 id: 'mc24',
                 phase: 'BOARD_SETUP',
@@ -1245,7 +1245,7 @@ export const combos = [
                 story: '🦴 Bone Party ➡️ 💥 👹 CC2 ➡️ ⬆️ 🐱 Ghattic',
                 tags: ['pop', 'summon']
             },
-    
+
             {
                 id: 'mc25',
                 phase: 'END_BOARD',
@@ -1261,7 +1261,7 @@ export const combos = [
                 tags: ['link', 'end-board']
             }
         ],
-    
+
         branches: [
             {
                 id: 'mace-horned-dragon',
@@ -1281,7 +1281,7 @@ export const combos = [
                         story: '🧙‍♀️ Angwitch ➡️ 🔎 🦕 Horned Dragon',
                         tags: ['variant', 'search']
                     },
-    
+
                     {
                         id: 'mch02',
                         phase: 'VARIANT',
@@ -1294,7 +1294,7 @@ export const combos = [
                     }
                 ]
             },
-    
+
             {
                 id: 'mace-cc2-link-material',
                 name: 'CC2 as Link Material',
@@ -1313,7 +1313,7 @@ export const combos = [
                         story: '👹 CC2 ➡️ ⬆️',
                         tags: ['variant', 'summon']
                     },
-    
+
                     {
                         id: 'mcc02',
                         phase: 'VARIANT',
@@ -1324,7 +1324,7 @@ export const combos = [
                         story: '🔻 3 corps ➡️ 🏹 Apollousa',
                         tags: ['variant', 'link']
                     },
-    
+
                     {
                         id: 'mcc03',
                         phase: 'VARIANT',
@@ -1357,7 +1357,7 @@ export const combos = [
                 story: '🐑 Shleepy ➡️ ⬆️ NS',
                 tags: ['starter', 'summon']
             },
-    
+
             {
                 id: 'sc02',
                 phase: 'STARTER',
@@ -1368,7 +1368,7 @@ export const combos = [
                 story: '🐑 Shleepy ➡️ 🐉🐉 Twin Dragon',
                 tags: ['fusion', 'summon']
             },
-    
+
             {
                 id: 'sc03',
                 phase: 'SETUP',
@@ -1382,7 +1382,7 @@ export const combos = [
                 story: '🐉🐉 Twin ➡️ 💥 ➡️ 🖐️ 🦕 Horned + 🐉 Tatsu',
                 tags: ['pop', 'add']
             },
-    
+
             {
                 id: 'sc04',
                 phase: 'SETUP',
@@ -1393,7 +1393,7 @@ export const combos = [
                 story: '🐉🐉 GY ➡️ 🫧 ➡️ 🐑 Shleepy',
                 tags: ['gy', 'float', 'summon']
             },
-    
+
             {
                 id: 'sc05',
                 phase: 'SETUP',
@@ -1408,7 +1408,7 @@ export const combos = [
                 story: '🐉 Tatsu ➡️ ⬆️ ➡️ 💥 🐑 ➡️ ⚰️ 🔨 + 🐱',
                 tags: ['summon', 'pop', 'send', 'gy']
             },
-    
+
             {
                 id: 'sc06',
                 phase: 'SETUP',
@@ -1420,7 +1420,7 @@ export const combos = [
                 chain: { id: 'shleepy-chain-1', link: 1 },
                 tags: ['chain', 'summon']
             },
-    
+
             {
                 id: 'sc07',
                 phase: 'SETUP',
@@ -1432,7 +1432,7 @@ export const combos = [
                 chain: { id: 'shleepy-chain-1', link: 2 },
                 tags: ['chain', 'send', 'gy']
             },
-    
+
             {
                 id: 'sc08',
                 phase: 'SETUP',
@@ -1443,7 +1443,7 @@ export const combos = [
                 story: '🐱 Ghattic ➡️ 🔎 🌀 Fusion',
                 tags: ['add', 'gy']
             },
-    
+
             {
                 id: 'sc09',
                 phase: 'SETUP',
@@ -1457,7 +1457,7 @@ export const combos = [
                 story: '🐱 + 🐉 ➡️ 🐏 Cross-Sheep',
                 tags: ['link', 'summon']
             },
-    
+
             {
                 id: 'sc10',
                 phase: 'BOARD_SETUP',
@@ -1473,7 +1473,7 @@ export const combos = [
                 story: '🌀 Fusion ➡️ 🔄 🐱 + 🐉🐉 + 🐑 ➡️ 👹 CC2',
                 tags: ['fusion', 'summon', 'shuffle']
             },
-    
+
             {
                 id: 'sc11',
                 phase: 'BOARD_SETUP',
@@ -1485,7 +1485,7 @@ export const combos = [
                 chain: { id: 'shleepy-chain-2', link: 1 },
                 tags: ['chain', 'summon']
             },
-    
+
             {
                 id: 'sc12',
                 phase: 'BOARD_SETUP',
@@ -1504,7 +1504,7 @@ export const combos = [
                     'Must sequence this way to send Dark Blade first'
                 ]
             },
-    
+
             {
                 id: 'sc13',
                 phase: 'GY_SETUP',
@@ -1515,7 +1515,7 @@ export const combos = [
                 story: '👑 GY ➡️ 🔎 🏟️ Mementomictlan',
                 tags: ['gy', 'search', 'field']
             },
-    
+
             {
                 id: 'sc14',
                 phase: 'BOARD_SETUP',
@@ -1529,7 +1529,7 @@ export const combos = [
                 story: '⚔️ Dark Blade ➡️ 💥 ➡️ ⬆️ 🧙‍♀️ Angwitch',
                 tags: ['pop', 'summon']
             },
-    
+
             {
                 id: 'sc15',
                 phase: 'BOARD_SETUP',
@@ -1541,7 +1541,7 @@ export const combos = [
                 chain: { id: 'shleepy-chain-3', link: 1 },
                 tags: ['chain', 'search']
             },
-    
+
             {
                 id: 'sc16',
                 phase: 'BOARD_SETUP',
@@ -1553,7 +1553,7 @@ export const combos = [
                 chain: { id: 'shleepy-chain-3', link: 2 },
                 tags: ['chain', 'summon']
             },
-    
+
             {
                 id: 'sc17',
                 phase: 'BOARD_SETUP',
@@ -1565,7 +1565,7 @@ export const combos = [
                 chain: { id: 'shleepy-chain-3', link: 3 },
                 tags: ['chain', 'summon', 'gy']
             },
-    
+
             {
                 id: 'sc18',
                 phase: 'BOARD_SETUP',
@@ -1579,7 +1579,7 @@ export const combos = [
                 story: '🔨 Mace ➡️ 💥 ➡️ 🔎 🦴 Bone Party',
                 tags: ['pop', 'search']
             },
-    
+
             {
                 id: 'sc19',
                 phase: 'BOARD_SETUP',
@@ -1593,7 +1593,7 @@ export const combos = [
                 story: '🐏 + 🧙‍♀️ ➡️ 🧙‍♀️ Selene ➡️ ⬆️ 🧙‍♀️ Angwitch',
                 tags: ['link', 'summon']
             },
-    
+
             {
                 id: 'sc20',
                 phase: 'END_BOARD',
@@ -1607,7 +1607,7 @@ export const combos = [
                 story: '🧙‍♀️ Selene + 🧙‍♀️ Angwitch ➡️ 🏹 Apollousa',
                 tags: ['link', 'end-board']
             },
-    
+
             {
                 id: 'sc21',
                 phase: 'END_BOARD',
@@ -1621,7 +1621,7 @@ export const combos = [
                 story: '🌀 GY ➡️ 💥 🦖 ➡️ 🖐️ 🌀 Fusion',
                 tags: ['gy', 'pop', 'add']
             },
-    
+
             {
                 id: 'sc22',
                 phase: 'END_BOARD',
@@ -1632,7 +1632,7 @@ export const combos = [
                 story: '🦖 Akihiron ➡️ 🔎 🔨 Mace',
                 tags: ['add', 'gy']
             },
-    
+
             {
                 id: 'sc23',
                 phase: 'END_BOARD',
@@ -1643,7 +1643,7 @@ export const combos = [
                 story: '🦕 Horned Dragon ➡️ ⬆️',
                 tags: ['summon', 'end-board']
             },
-    
+
             {
                 id: 'sc24',
                 phase: 'END_BOARD',
@@ -1654,7 +1654,7 @@ export const combos = [
                 story: '👺 Goblin ➡️ 💥 ➡️ ⚰️ 🂠 Trap + ❓',
                 tags: ['pop', 'send', 'gy']
             },
-    
+
             {
                 id: 'sc25',
                 phase: 'END_BOARD',
@@ -1668,7 +1668,7 @@ export const combos = [
                 story: '👑 + 🦕 ➡️ 🗡️ S:P',
                 tags: ['link', 'end-board']
             },
-    
+
             {
                 id: 'sc26',
                 phase: 'END_PHASE',
@@ -1680,7 +1680,7 @@ export const combos = [
                 tags: ['end-phase', 'set']
             }
         ],
-    
+
         branches: [
             {
                 id: 'shleepy-horned-bone-party',

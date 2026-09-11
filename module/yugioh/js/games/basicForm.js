@@ -38,7 +38,8 @@ export function start(container, ctx) {
             ]),
             el('div', { class: 'ygo-card-row' }, stepCards(step).map(name => cardView(name, {
                 size: 'medium',
-                emoji: ctx.emojiOf(name)
+                emoji: ctx.emojiOf(name),
+                displayMode: ctx.cardVisualMode
             }))),
             el('div', { class: 'ygo-step-text' }, [
                 technical

@@ -131,7 +131,7 @@ export function start(container, ctx) {
                 clear(optionsBox);
                 optionsBox.append(
                     el('div', { class: 'ygo-card-row' }, stepCards(step).slice(0, 4).map(name =>
-                        cardView(name, { size: 'small', emoji: ctx.emojiOf(name) }))),
+                        cardView(name, { size: 'small', emoji: ctx.emojiOf(name), displayMode: ctx.cardVisualMode }))),
                     button(index < questions.length - 1 ? 'Étape suivante ▶' : 'Terminer ✓', {
                         variant: 'primary',
                         onClick: () => {
