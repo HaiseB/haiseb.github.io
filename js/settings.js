@@ -3,7 +3,7 @@ const SETTINGS_COOKIE = 'formData';
 function defaultSettings() {
     return {
         fetchChangelog: true,
-        ygoCardVisualMode: 'emoji'
+        ygoCardVisualMode: 'image'
     };
 }
 

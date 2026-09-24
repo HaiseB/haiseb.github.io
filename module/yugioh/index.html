@@ -19,7 +19,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg site-navbar">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -28,78 +28,33 @@
             </button>
             <a class="navbar-brand" href="../../index.html">HaiseB</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
                     <li class="nav-item" id="li-home">
                         <a class="nav-link" href="../../index.html"><i
                                 class="fa-solid fa-house"></i>&nbsp;&nbsp;Accueil</a>
                     </li>
-                    <li class="nav-item" id="li-radio">
-                        <a class="nav-link" href="../radio/index.html"><i
-                                class="fa-solid fa-radio"></i>&nbsp;&nbsp;Radio</a>
-                    </li>
-                    <li class="nav-item" id="li-league">
-                        <a class="nav-link" href="../league/index.html"><i
-                                class="fa-solid fa-skull"></i>&nbsp;&nbsp;League</a>
+                    <li class="nav-item" id="li-portfolio">
+                        <a class="nav-link" href="../portfolio/index.html"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Portfolio</a>
                     </li>
                     <li class="nav-item" id="li-yugioh">
                         <a class="nav-link active" aria-current="page" href="./index.html"><i
                                 class="fa-solid fa-dragon"></i>&nbsp;&nbsp;Yu-Gi-Oh!</a>
                     </li>
-                    <li class="nav-item" id="li-knowledge">
-                        <a class="nav-link" href="../knowledgeBase/index.html"><i
-                                class="fa-solid fa-book"></i>&nbsp;&nbsp;Encyclopédie</a>
-                    </li>
-                    <li class="nav-item dropdown" id="li-amnios">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Amnios
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item disabled" aria-disabled="true" tabindex="-1" href="#"><i
-                                        class="fa-solid fa-carrot"></i>&nbsp;&nbsp;Repas</a></li>
-                            <li><a class="dropdown-item disabled" aria-disabled="true" tabindex="-1" href="#"><i
-                                        class="fa-solid fa-list-check"></i>&nbsp;&nbsp;Tâches</a></li>
-                            <li><a class="dropdown-item disabled" aria-disabled="true" tabindex="-1" href="#"><i
-                                        class="fa-solid fa-gift"></i>&nbsp;&nbsp;Cadeaux</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item" id="li-mtg">
-                        <a class="nav-link disabled" aria-disabled="true" tabindex="-1" href="#"><i
-                                class="fa-brands fa-wizards-of-the-coast"></i>&nbsp;&nbsp;Magic</a>
-                    </li>
-                    <li class="nav-item dropdown" id="li-about">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            À propos du site
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="https://github.com/HaiseB"><i
-                                        class="fa-brands fa-github"></i>&nbsp;&nbsp;Github</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item disabled" aria-disabled="true" tabindex="-1" href="#"><i
-                                        class="fa-solid fa-code"></i>&nbsp;&nbsp;Développeur</a></li>
-                            <li><a class="dropdown-item disabled" aria-disabled="true" tabindex="-1" href="#"><i
-                                        class="fa-brands fa-discord"></i>&nbsp;&nbsp;Discord</a></li>
-                        </ul>
-                    </li>
                 </ul>
-                <div class="d-flex justify-content-around">
-                    <a data-bs-toggle="offcanvas" href="#offcanvasSettings" role="button"
-                        aria-controls="offcanvasSettings">
-                        <img src="https://i.ibb.co/nnzfDhd/Benjamin.jpg" class="rounded-circle me-2"
+                <div class="navbar-actions d-flex align-items-center justify-content-around">
+                    <a class="nav-icon-button" data-bs-toggle="offcanvas" href="#offcanvasSettings" role="button"
+                        aria-controls="offcanvasSettings" aria-label="Paramètres">
+                        <img src="https://i.ibb.co/nnzfDhd/Benjamin.jpg" class="rounded-circle"
                             alt="profil picture" size="36" height="36" width="36" id="profil-picture" />
                     </a>
-                    <form class="d-flex" role="search" data-root-prefix="../..">
+                    <form class="nav-search d-flex align-items-center" role="search" data-root-prefix="../..">
                         <input class="form-control me-2" type="search" placeholder="Recherche" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Rechercher</button>
+                        <button class="btn" type="submit">Rechercher</button>
                     </form>
                 </div>
             </div>
         </div>
     </nav>
-    <hr>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasSettings" aria-labelledby="offcanvasSettingsLabel">
         <div class="offcanvas-header">
@@ -111,7 +66,6 @@
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <hr>
             <form id="settingsForm">
                 <h6>Yu-Gi-Oh</h6>
                 <div class="mb-3">

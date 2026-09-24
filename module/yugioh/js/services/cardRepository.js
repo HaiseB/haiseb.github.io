@@ -57,7 +57,39 @@ function normalize(card) {
 }
 
 function store(key, card) {
-    cache[key.toLowerCase()] = normalize(card);
+    cache[String(key).toLowerCase()] = normalize(card);
+}
+
+function lookupCandidates(name, apiName) {
+    const values = [];
+    const seen = new Set();
+    const add = value => {
+        const text = String(value || '').trim();
+        if (!text) return;
+        const lowered = text.toLowerCase();
+        if (seen.has(lowered)) return;
+        seen.add(lowered);
+        values.push(text);
+
+        const spaced = text.replace(/[-–—]/g, ' ').replace(/\s+/g, ' ');
+        if (spaced && spaced.toLowerCase() !== lowered && !seen.has(spaced.toLowerCase())) {
+            seen.add(spaced.toLowerCase());
+            values.push(spaced);
+        }
+
+        const hyphenated = spaced.replace(/\s+/g, '-');
+        if (hyphenated && hyphenated.toLowerCase() !== lowered && !seen.has(hyphenated.toLowerCase())) {
+            seen.add(hyphenated.toLowerCase());
+            values.push(hyphenated);
+        }
+    };
+
+    add(name);
+    add(apiName);
+    const fallbackKey = String(name).toLowerCase();
+    if (apiNames.has(fallbackKey)) add(apiNames.get(fallbackKey));
+
+    return values;
 }
 
 async function requestJson(params) {
@@ -86,27 +118,33 @@ export async function loadCard(name, apiName) {
     if (pending.has(key)) return pending.get(key);
     if (isBackingOff()) return null;
 
-    const query = apiName || apiNames.get(key) || name;
     const task = (async () => {
-        try {
-            const exact = await requestJson(new URLSearchParams({ name: query }));
-            if (exact.length) {
-                store(name, exact[0]);
-                saveCache();
-                return cache[key];
+        for (const query of lookupCandidates(name, apiName)) {
+            try {
+                const exact = await requestJson(new URLSearchParams({ name: query }));
+                if (exact.length) {
+                    const resolved = exact[0];
+                    store(name, resolved);
+                    if (apiName && apiName !== name) store(apiName, resolved);
+                    saveCache();
+                    return cache[key];
+                }
+            } catch (error) {
+                /* on tente la variante suivante */
             }
-        } catch (error) {
-            /* on tente la recherche approchée */
-        }
-        try {
-            const fuzzy = await requestJson(new URLSearchParams({ fname: query }));
-            if (fuzzy.length) {
-                store(name, fuzzy[0]);
-                saveCache();
-                return cache[key];
+
+            try {
+                const fuzzy = await requestJson(new URLSearchParams({ fname: query }));
+                if (fuzzy.length) {
+                    const resolved = fuzzy[0];
+                    store(name, resolved);
+                    if (apiName && apiName !== name) store(apiName, resolved);
+                    saveCache();
+                    return cache[key];
+                }
+            } catch (error) {
+                /* API indisponible : placeholder côté UI */
             }
-        } catch (error) {
-            /* API indisponible : placeholder côté UI */
         }
         return null;
     })();
@@ -131,9 +169,14 @@ export async function preloadDeck(deckCards) {
         const byName = new Map(data.map(card => [card.name.toLowerCase(), card]));
         const stillMissing = [];
         for (const card of missing) {
-            const found = byName.get((card.apiName || card.name).toLowerCase());
-            if (found) store(card.name, found);
-            else stillMissing.push(card);
+            const lookupName = (card.apiName || card.name).toLowerCase();
+            const found = byName.get(lookupName) || byName.get(card.name.toLowerCase()) || byName.get(card.name.replace(/-/g, ' ').toLowerCase());
+            if (found) {
+                store(card.name, found);
+                if (card.apiName && card.apiName !== card.name) store(card.apiName, found);
+            } else {
+                stillMissing.push(card);
+            }
         }
         saveCache();
         await Promise.allSettled(stillMissing.map(card => loadCard(card.name, card.apiName)));

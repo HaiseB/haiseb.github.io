@@ -28,7 +28,7 @@ export function cardView(name, { size = 'medium', emoji = '🃏', state = null, 
         attrs: onClick ? { type: 'button' } : {},
         on: onClick ? { click: () => onClick(name) } : {}
     }, [
-        el('span', { class: 'ygo-card__emoji', text: emoji }),
+        resolvedMode === 'emoji' ? el('span', { class: 'ygo-card__emoji', text: emoji }) : null,
         image,
         el('span', { class: 'ygo-card__name', text: label || name })
     ]);

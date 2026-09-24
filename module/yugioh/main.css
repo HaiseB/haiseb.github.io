@@ -104,7 +104,8 @@ body {
     transform: scale(.99);
 }
 
-.ygo-list-item--deck {
+.ygo-list-item--deck,
+.ygo-list-item--route {
     display: flex;
     align-items: center;
     gap: 14px;
@@ -114,7 +115,8 @@ body {
     min-width: 0;
 }
 
-.ygo-deck-avatar {
+.ygo-deck-avatar,
+.ygo-route-avatar {
     flex: 0 0 auto;
     width: 52px;
     height: 52px;
@@ -126,6 +128,10 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 1.4rem;
+}
+
+.ygo-route-avatar--fallback {
+    font-size: 1.2rem;
 }
 
 .ygo-list-item__title {
@@ -265,6 +271,7 @@ body {
     background: var(--ygo-surface);
     color: var(--ygo-text);
     text-align: center;
+    overflow: hidden;
 }
 
 .ygo-card--small {
@@ -285,6 +292,7 @@ body {
     object-fit: cover;
     border-radius: 8px;
     background: var(--ygo-surface-2);
+    display: block;
 }
 
 .ygo-card__emoji {
@@ -299,7 +307,25 @@ body {
     font-size: 1.45rem;
 }
 
+.ygo-card--image {
+    padding: 0;
+    background: transparent;
+    border: 0;
+}
+
+.ygo-card--image .ygo-card__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
 .ygo-card--image .ygo-card__emoji {
+    display: none;
+}
+
+.ygo-card--image .ygo-card__name {
     display: none;
 }
 
