@@ -17,7 +17,7 @@ function readSettingsFromCookie() {
         return {
             ...defaults,
             ...parsed,
-            ygoCardVisualMode: parsed && parsed.ygoCardVisualMode === 'image' ? 'image' : 'emoji'
+            ygoCardVisualMode: parsed && parsed.ygoCardVisualMode === 'emoji' ? 'emoji' : 'image'
         };
     } catch (error) {
         console.warn('Cookie settings unreadable, fallback to defaults.', error);

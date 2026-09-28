@@ -27,8 +27,7 @@ function getSettingsCookie() {
 
 function cardVisualMode() {
     const settings = getSettingsCookie();
-    if (!settings) return 'image';
-    return settings.ygoCardVisualMode === 'emoji' ? 'emoji' : 'image';
+    return settings && settings.ygoCardVisualMode === 'emoji' ? 'emoji' : 'image';
 }
 
 function emojiOfFactory(deck) {
@@ -103,24 +102,21 @@ function routeItem(deck, route) {
     const best = MODE_IDS
         .map(modeId => getEntry(deck.id, route.id, modeId).mastery)
         .reduce((max, value) => Math.max(max, value), 0);
-
-    const firstCard = routeCards(route)[0];
-    const thumb = firstCard
-        ? (() => {
-            const image = el('img', {
-                class: 'ygo-route-avatar',
-                attrs: { src: artUrlSync(firstCard), alt: firstCard, loading: 'lazy' }
-            });
-            image.addEventListener('error', () => { image.src = placeholderArt(); });
-            artUrl(firstCard).then(url => {
-                if (url && image.src !== url) image.src = url;
-            });
-            return image;
-        })()
-        : el('span', { class: 'ygo-route-avatar ygo-route-avatar--fallback', text: route.emoji });
+    const cardName = routeCards(route)[0];
+    const card = deck.cards.find(entry => entry.name === cardName);
+    const image = el('img', {
+        class: 'ygo-route-avatar',
+        attrs: { src: artUrlSync(cardName), alt: cardName || route.name, loading: 'lazy' }
+    });
+    image.addEventListener('error', () => { image.src = placeholderArt(); });
+    if (cardName) {
+        artUrl(cardName, card && card.apiName).then(url => {
+            if (url && image.src !== url) image.src = url;
+        });
+    }
 
     return el('a', { class: 'ygo-list-item ygo-list-item--route', attrs: { href: `#/route/${deck.id}/${encodeURIComponent(route.id)}` } }, [
-        thumb,
+        image,
         el('span', { class: 'ygo-list-item__body' }, [
             el('span', { class: 'ygo-list-item__title', text: route.name }),
             el('span', { class: 'ygo-list-item__sub', text: `${route.steps.length} étapes · ${route.branchId ? route.comboName : 'ligne principale'}` }),
@@ -147,7 +143,7 @@ function renderModes(deckId, routeId) {
                 class: 'ygo-list-item',
                 attrs: { href: `#/play/${deck.id}/${encodeURIComponent(route.id)}/${mode.id}` }
             }, [
-                el('span', { class: 'ygo-list-item__title', text: mode.name }),
+                el('span', { class: 'ygo-list-item__title', text: `${mode.emoji} ${mode.name}` }),
                 el('span', { class: 'ygo-list-item__sub', text: mode.description }),
                 el('span', { class: 'ygo-list-item__meta', text: masteryStars(entry.mastery) }),
                 entry.attempts

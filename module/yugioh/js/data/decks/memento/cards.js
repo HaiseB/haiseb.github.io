@@ -13,7 +13,7 @@ export const cards = [
     { name: 'Mementotlan Ghattic', short: 'Ghattic', emoji: '🐱', role: 'main' },
     { name: 'Mementotlan Akihiron', short: 'Akihiron', emoji: '🦖', role: 'main' },
     { name: 'Mementotlan Dark Blade', short: 'Dark Blade', emoji: '⚔️', role: 'main' },
-    { name: 'Mementotlan-Horned Dragon', short: 'Horned Dragon', emoji: '🦕', role: 'main' },
+    { name: 'Mementotlan-Horned Dragon', apiName: 'Mementotlan Horned Dragon', short: 'Horned Dragon', emoji: '🦕', role: 'main' },
     { name: 'Mementotlan Fusion', short: 'Fusion', emoji: '🌀', role: 'spell' },
     { name: 'Mementotlan Bone Party', short: 'Bone Party', emoji: '🦴', role: 'spell' },
     { name: 'Mementomictlan', short: 'Mementomictlan', emoji: '🏟️', role: 'field' },

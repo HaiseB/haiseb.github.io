@@ -5,7 +5,7 @@ import { imageUrlSync, imageUrl, placeholderImage } from '../services/cardImageS
  * Carte visuelle réutilisable.
  * Tailles : small | medium | large. États : selected, correct, wrong, locked.
  */
-export function cardView(name, { size = 'medium', emoji = '🃏', state = null, label = null, onClick = null, apiName = null, displayMode = 'emoji' } = {}) {
+export function cardView(name, { size = 'medium', emoji = '🃏', state = null, label = null, onClick = null, apiName = null, displayMode = 'image' } = {}) {
     const resolvedMode = displayMode === 'image' ? 'image' : 'emoji';
     const classes = ['ygo-card', `ygo-card--${size}`, `ygo-card--${resolvedMode}`];
     if (state) classes.push(`is-${state}`);

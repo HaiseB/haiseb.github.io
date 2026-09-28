@@ -14,7 +14,7 @@ fetch(apiUrl)
     })
     .then(renderTags)
     .catch(error => {
-        console.error('Error fetching tags:', error);
+        console.error('Error fetching data:', error);
         renderError();
     });
 
@@ -28,7 +28,6 @@ function renderTags(tags) {
 
     const list = document.createElement('ul');
     list.className = 'list-group changelog-day mb-3';
-
     tags.forEach(tag => list.appendChild(buildTagItem(tag)));
     changelogContainer.appendChild(list);
 }
@@ -39,9 +38,7 @@ function buildTagItem(tag) {
 
     const left = document.createElement('div');
     left.className = 'd-flex align-items-center gap-3';
-
-    const iconNode = icon('fa-solid fa-tag text-body-secondary');
-    left.appendChild(iconNode);
+    left.appendChild(icon('fa-solid fa-tag text-body-secondary'));
 
     const info = document.createElement('div');
     info.className = 'd-flex flex-column';
@@ -58,7 +55,6 @@ function buildTagItem(tag) {
     subtitle.className = 'text-body-secondary';
     subtitle.textContent = 'Version publiée sur GitHub';
     info.appendChild(subtitle);
-
     left.appendChild(info);
     item.appendChild(left);
 
@@ -95,14 +91,14 @@ function renderError() {
     const alert = document.createElement('div');
     alert.className = 'alert alert-warning d-flex align-items-center gap-2';
     alert.appendChild(icon('fa-solid fa-triangle-exclamation'));
-    alert.append('Impossible de récupérer les tags depuis GitHub pour le moment.');
+    alert.append('Impossible de récupérer le changelog depuis GitHub pour le moment.');
 
     const link = document.createElement('a');
     link.href = `https://github.com/${REPO}/tags`;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.className = 'alert-link ms-auto';
-    link.textContent = 'Voir sur GitHub';
+    link.textContent = 'Voir les tags sur GitHub';
     alert.appendChild(link);
 
     changelogContainer.appendChild(alert);
@@ -114,10 +110,3 @@ function icon(classNames) {
     return node;
 }
 
-function formatDate(date) {
-    return date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
-}
-
-function formatTime(date) {
-    return date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
-}
